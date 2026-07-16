@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日股市洞察研报 — 2026-07-16</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #f5f0e8;
+  color: #3d2b1f;
+  font-family: "Noto Serif SC", "STSong", "Songti SC", Georgia, serif;
+  line-height: 1.8;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  border-bottom: 3px double #3d2b1f;
+  margin-bottom: 50px;
+}
+.header h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+.header .subtitle {
+  font-size: 1.1em;
+  color: #8b7355;
+  letter-spacing: 2px;
+}
+.header .date {
+  font-size: 0.95em;
+  color: #a89070;
+  margin-top: 15px;
+}
+.section-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 50px 0 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #d4c5b2;
+  color: #2d1f0e;
+}
+.card {
+  background: #faf7f2;
+  border: 1px solid #e0d5c7;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 4px 20px rgba(61,43,31,0.10); }
+.card-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2d1f0e;
+  letter-spacing: 1px;
+}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.index-card {
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 10px;
+  background: #faf7f2;
+  border: 1px solid #e0d5c7;
+}
+.index-card .name { font-size: 0.9em; color: #8b7355; margin-bottom: 8px; }
+.index-card .price { font-size: 1.8em; font-weight: 700; }
+.index-card .chg { font-size: 1.1em; font-weight: 600; margin-top: 5px; }
+.chg-down { color: #22c55e; }
+.chg-up { color: #ef4444; }
+.negative { color: #22c55e; }
+.positive { color: #ef4444; }
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8e0d5;
+}
+.metric-label { color: #8b7355; font-size: 0.95em; }
+.metric-value { font-weight: 700; font-size: 1.05em; }
+.gauge-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.gauge-item {
+  text-align: center;
+  min-width: 140px;
+}
+.gauge-label { font-size: 0.85em; color: #8b7355; margin-top: 8px; }
+.gauge-value { font-size: 1.4em; font-weight: 700; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  gap: 10px;
+}
+.bar-row .label { width: 160px; font-size: 0.9em; text-align: right; flex-shrink: 0; }
+.bar-row .bar-bg {
+  flex: 1;
+  height: 24px;
+  background: #e8e0d5;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-row .bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s;
+}
+.bar-row .bar-val { width: 70px; font-size: 0.85em; font-weight: 600; text-align: left; flex-shrink: 0; }
+.etf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.etf-table th {
+  background: #3d2b1f;
+  color: #f5f0e8;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.etf-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e0d5c7;
+}
+.etf-table tr:hover { background: rgba(61,43,31,0.04); }
+.analysis-section {
+  font-size: 1.05em;
+  line-height: 2;
+}
+.analysis-section h3 {
+  font-size: 1.3em;
+  margin: 30px 0 15px;
+  color: #2d1f0e;
+  letter-spacing: 1px;
+}
+.analysis-section p { margin: 12px 0; }
+.highlight-box {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 1px solid #f59e0b;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin: 20px 0;
+}
+.highlight-box.red {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-color: #ef4444;
+}
+.highlight-box.green {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  border-color: #22c55e;
+}
+.risk-item {
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-left: 3px solid #ef4444;
+  background: rgba(239,68,68,0.05);
+}
+.catalyst-item {
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-left: 3px solid #22c55e;
+  background: rgba(34,197,94,0.05);
+}
+.chart-box {
+  width: 100%;
+  max-height: 400px;
+  margin: 20px 0;
+}
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-top: 1px solid #d4c5b2;
+  color: #a89070;
+  font-size: 0.85em;
+}
+.alert-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  color: #991b1b;
+  font-size: 0.9em;
+}
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.tag-green { background: rgba(34,197,94,0.15); color: #15803d; }
+.tag-yellow { background: rgba(250,204,21,0.2); color: #92400e; }
+.tag-red { background: rgba(239,68,68,0.15); color: #991b1b; }
+.dashboard-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.dashboard-card {
+  flex: 1;
+  min-width: 200px;
+  background: #faf7f2;
+  border: 1px solid #e0d5c7;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.dashboard-card .title { color: #8b7355; font-size: 0.85em; margin-bottom: 10px; }
+.dashboard-card .value { font-size: 2em; font-weight: 700; }
+.dashboard-card .sub { font-size: 0.85em; color: #8b7355; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 每日股市洞察研报</h1>
+  <div class="subtitle">MACRO · VALUATION · ETF · DEEP DIVE</div>
+  <div class="date">2026-07-16 · 交易日 · 盘后发布</div>
+</div>
+
+<!-- ═══════════ 一、今日市场概览 ═══════════ -->
+<div class="section-title">一、今日市场概览</div>
+
+<div class="card">
+  <div class="card-title">📈 核心指数表现</div>
+  <div class="grid-4">
+
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="price">3882.41</div>
+      <div class="chg chg-down">↓1.85%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="price">14488.65</div>
+      <div class="chg chg-down">↓1.97%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="price">3692.46</div>
+      <div class="chg chg-down">↓2.95%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">科创50</div>
+      <div class="price">1846.88</div>
+      <div class="chg chg-down">↓4.02%</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">📊 市场广度</div>
+
+    <div class="metric-row"><span class="metric-label">上证最高</span><span class="metric-value">3940.45</span></div>
+    <div class="metric-row"><span class="metric-label">上证最低</span><span class="metric-value">3867.60</span></div>
+    <div class="metric-row"><span class="metric-label">上证开盘</span><span class="metric-value">3912.38</span></div>
+    <div class="metric-row"><span class="metric-label">沪市成交额</span><span class="metric-value">11,242 亿</span></div>
+    <div class="metric-row"><span class="metric-label">深市成交额</span><span class="metric-value">12,794 亿</span></div>
+    <div class="metric-row"><span class="metric-label">全市场成交额</span><span class="metric-value">24,036 亿</span></div>
+    <div class="metric-row"><span class="metric-label">北向资金净买额</span><span class="metric-value">0.04 亿</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔥 市场情绪判断</div>
+    <p style="font-size: 1.1em; line-height: 2.2;">
+    今日市场<b>全面下跌</b>，四大指数齐跌，科创50领跌 <span class="chg-down">-4.02%</span>。
+    全市场成交额 <b>24,036亿</b>，较前日有所放量，恐慌盘涌出。
+    北向资金小幅净流入 <b>0.04亿</b>，外资态度谨慎。<br><br>
+    市场情绪：<span class="tag tag-red">恐慌</span> 
+    跌幅广度大，中小盘和科技股承压最重。短期市场进入超卖区域，
+    技术面存在反弹需求，但需关注晚间外盘表现和政策面信号。
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════ 二、整体估值温度 ═══════════ -->
+<div class="section-title">二、整体估值温度</div>
+
+<div class="dashboard-row">
+  <div class="dashboard-card">
+    <div class="title">沪深300 PE分位</div>
+    <div class="value" style="color:#facc15">48.5%</div>
+    <div class="sub"><span class="tag tag-yellow">适中</span></div>
+  </div>
+  <div class="dashboard-card">
+    <div class="title">沪深300 PB分位</div>
+    <div class="value" style="color:#facc15">42.3%</div>
+    <div class="sub"><span class="tag tag-yellow">适中</span></div>
+  </div>
+  <div class="dashboard-card">
+    <div class="title">格雷厄姆指数</div>
+    <div class="value" style="color:#4ade80">1.82</div>
+    <div class="sub">(1/PE)/国债 > 1.5 · 安全</div>
+  </div>
+  <div class="dashboard-card">
+    <div class="title">巴菲特指数</div>
+    <div class="value" style="color:#facc15">~72%</div>
+    <div class="sub">总市值/GDP · 合理偏高</div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:20px;">
+  <div class="card-title">🔍 综合估值判断</div>
+  <div style="padding: 15px; font-size: 1.05em; line-height: 2;">
+    <p><b>四大法宝状态：</b></p>
+    <p>• PE/PB 魔盒：<span class="tag tag-green">未开启</span> — 沪深300 PE/PB 分位均低于70%阈值</p>
+    <p>• 格雷厄姆魔盒：<span class="tag tag-green">未开启</span> — 比值 1.82 > 1.5 阈值，差值约 2.1% > 0</p>
+    <p>• 巴菲特魔盒：<span class="tag tag-green">未开启</span> — 总市值/GDP 约72%，低于100%阈值</p>
+    <p>• 换手率魔盒：<span class="tag tag-green">未开启</span> — 七日换手率处于正常区间</p>
+    <br>
+    <p><b>综合判断：</b>0项触发，<span class="tag tag-green">估值整体处于合理区间</span>。
+    当前市场下跌更多反映短期情绪和结构性调整，非系统性高估风险。
+    沪深300 PE分位48.5%处于历史中位，中长期配置价值显现。</p>
+    <br>
+    <p class="alert-box">⚠️ 注意：以上估值数据基于模型估算，实际分位值可能因数据源差异而有所不同。</p>
+  </div>
+</div>
+
+<!-- ═══════════ 三、指数基金洞察 ═══════════ -->
+<div class="section-title">三、指数基金洞察</div>
+
+<div class="card">
+  <div class="card-title">🏆 ETF 精选池（估值优先，温度 ≤ 70%）</div>
+  <div style="overflow-x: auto;">
+  <table class="etf-table">
+    <thead>
+      <tr><th>代码</th><th>名称</th><th>类别</th><th>规模(亿)</th><th>3年收益</th><th>5年收益</th><th>α值</th><th>估值温度</th></tr>
+    </thead>
+    <tbody>
+
+      <tr style="background: rgba(74,222,128,0.12);">
+        <td><b>512010</b></td>
+        <td>医药ETF易方达</td>
+        <td>行业</td>
+        <td>172</td>
+        <td style="color:#ef4444">-4.1%</td>
+        <td style="color:#ef4444">-14.3%</td>
+        <td style="color:#ef4444">-22.3%</td>
+        <td><span style="color:#4ade80;font-weight:700;">18.5%</span> <small>较为低估</small></td>
+      </tr>
+      <tr style="background: rgba(74,222,128,0.12);">
+        <td><b>159949</b></td>
+        <td>创业板50ETF华安</td>
+        <td>宽基</td>
+        <td>207</td>
+        <td style="color:#22c55e">+23.7%</td>
+        <td style="color:#22c55e">+2.9%</td>
+        <td style="color:#ef4444">-5.1%</td>
+        <td><span style="color:#4ade80;font-weight:700;">25.2%</span> <small>较为低估</small></td>
+      </tr>
+      <tr style="background: rgba(74,222,128,0.12);">
+        <td><b>159915</b></td>
+        <td>创业板ETF易方达</td>
+        <td>宽基</td>
+        <td>510</td>
+        <td style="color:#22c55e">+20.1%</td>
+        <td style="color:#22c55e">+2.1%</td>
+        <td style="color:#ef4444">-5.9%</td>
+        <td><span style="color:#4ade80;font-weight:700;">28.5%</span> <small>较为低估</small></td>
+      </tr>
+      <tr style="background: rgba(74,222,128,0.12);">
+        <td><b>159781</b></td>
+        <td>科创创业ETF易方达</td>
+        <td>宽基</td>
+        <td>104</td>
+        <td style="color:#22c55e">+29.1%</td>
+        <td style="color:#22c55e">+4.6%</td>
+        <td style="color:#ef4444">-3.4%</td>
+        <td><span style="color:#4ade80;font-weight:700;">28.8%</span> <small>较为低估</small></td>
+      </tr>
+      <tr style="background: rgba(74,222,128,0.12);">
+        <td><b>512100</b></td>
+        <td>中证1000ETF南方</td>
+        <td>宽基</td>
+        <td>231</td>
+        <td style="color:#22c55e">+6.5%</td>
+        <td style="color:#22c55e">+2.1%</td>
+        <td style="color:#ef4444">-5.9%</td>
+        <td><span style="color:#4ade80;font-weight:700;">30.2%</span> <small>较为低估</small></td>
+      </tr>
+      <tr style="background: rgba(74,222,128,0.12);">
+        <td><b>588000</b></td>
+        <td>科创50ETF华夏</td>
+        <td>宽基</td>
+        <td>685</td>
+        <td style="color:#22c55e">+23.9%</td>
+        <td style="color:#22c55e">+4.4%</td>
+        <td style="color:#ef4444">-3.6%</td>
+        <td><span style="color:#4ade80;font-weight:700;">32.1%</span> <small>较为低估</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>510500</b></td>
+        <td>中证500ETF南方</td>
+        <td>宽基</td>
+        <td>725</td>
+        <td style="color:#22c55e">+11.0%</td>
+        <td style="color:#22c55e">+4.3%</td>
+        <td style="color:#ef4444">-3.6%</td>
+        <td><span style="color:#facc15;font-weight:700;">35.8%</span> <small>适中</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>510050</b></td>
+        <td>上证50ETF华夏</td>
+        <td>宽基</td>
+        <td>667</td>
+        <td style="color:#22c55e">+5.8%</td>
+        <td style="color:#ef4444">-0.8%</td>
+        <td style="color:#ef4444">-8.8%</td>
+        <td><span style="color:#facc15;font-weight:700;">45.2%</span> <small>适中</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>510300</b></td>
+        <td>沪深300ETF华泰柏瑞</td>
+        <td>宽基</td>
+        <td>1999</td>
+        <td style="color:#22c55e">+7.6%</td>
+        <td style="color:#ef4444">-0.0%</td>
+        <td style="color:#ef4444">-8.0%</td>
+        <td><span style="color:#facc15;font-weight:700;">48.5%</span> <small>适中</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>512880</b></td>
+        <td>证券ETF国泰</td>
+        <td>行业</td>
+        <td>516</td>
+        <td style="color:#22c55e">+7.4%</td>
+        <td style="color:#22c55e">+0.7%</td>
+        <td style="color:#ef4444">-7.3%</td>
+        <td><span style="color:#facc15;font-weight:700;">52.8%</span> <small>适中</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>512480</b></td>
+        <td>半导体ETF国联安</td>
+        <td>行业</td>
+        <td>199</td>
+        <td style="color:#22c55e">+36.6%</td>
+        <td style="color:#22c55e">+12.5%</td>
+        <td style="color:#22c55e">+4.5%</td>
+        <td><span style="color:#facc15;font-weight:700;">58.7%</span> <small>适中</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>515080</b></td>
+        <td>中证红利ETF招商</td>
+        <td>策略</td>
+        <td>89</td>
+        <td style="color:#22c55e">+4.9%</td>
+        <td style="color:#22c55e">+4.9%</td>
+        <td style="color:#ef4444">-3.1%</td>
+        <td><span style="color:#facc15;font-weight:700;">65.3%</span> <small>适中</small></td>
+      </tr>
+      <tr style="background: rgba(250,204,21,0.12);">
+        <td><b>512800</b></td>
+        <td>银行ETF华宝</td>
+        <td>行业</td>
+        <td>120</td>
+        <td style="color:#22c55e">+13.1%</td>
+        <td style="color:#22c55e">+5.6%</td>
+        <td style="color:#ef4444">-2.4%</td>
+        <td><span style="color:#facc15;font-weight:700;">68.2%</span> <small>适中</small></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">💡 ETF 推荐池</div>
+  <div style="line-height: 2.2; font-size: 1.05em;">
+    <p><b>🥇 科创创业50ETF（159781）</b> — 估温28.8%，3年+29%，科技+创新双引擎</p>
+    <p><b>🥈 创业板ETF（159915）</b> — 估温28.5%，规模510亿，流动性好，Beta强</p>
+    <p><b>🥉 中证500ETF（510500）</b> — 估温35.8%，中盘风格，规模725亿，防守反击</p>
+    <br>
+    <p><b>防御组合：</b> 中证红利ETF（515080，估温65.3%，5年+4.9%）+ 银行ETF（512800，估温68.2%，3年+13.1%）</p>
+    <p><b>进攻组合：</b> 半导体ETF（512480，估温58.7%，3年+36.6%）+ 科创50ETF（588000，估温32.1%，3年+23.9%）</p>
+  </div>
+</div>
+
+<!-- ═══════════ 四、公司深度分析 ═══════════ -->
+<div class="section-title">四、公司深度分析</div>
+
+<div class="card">
+  <div class="card-title">🎯 宁德时代（300750.SZ）— 全球动力电池王者，周期底部布局窗口</div>
+  
+  <div class="analysis-section">
+    <h3>1. 这家公司到底赚的是什么钱？</h3>
+    <p>
+    宁德时代的商业模式本质是<b>"制造业规模效应 + 技术路线锁定"</b>。
+    收入约70%来自动力电池（卖给车厂），约20%来自储能电池，约10%来自电池材料回收。
+    成本结构中，碳酸锂等原材料占比约40-50%，制造费用约20%，人工约10%。
+    </p>
+    <p>
+    <b>护城河判断：真实且深厚。</b>
+    ① 全球市场份额约37%（2026Q1），第二名比亚迪约16%，规模优势带来采购溢价力；
+    ② 研发投入超120亿/年，CTP 3.0/钠离子/凝聚态电池构筑技术壁垒；
+    ③ 与特斯拉、宝马、奔驰等头部客户深度绑定，切换成本高。
+    </p>
+    <p>
+    <b>产业链位置：</b>对上游锂矿有一定议价权（多供应商策略+自供矿），对下游车厂有较强定价权
+    （电池占整车成本35-40%，车厂难以轻易切换供应商）。
+    </p>
+
+    <div class="highlight-box green">
+      <b>核心矛盾：</b>市场给宁德时代的定价，隐含了对"制造业企业"的估值逻辑（PE 15-20x），
+      但宁德的护城河深度更接近"技术平台型公司"。这个认知差是超额收益的来源。
+    </div>
+
+    <h3>2. 行业赛道：扩张中但竞争加剧</h3>
+    <p>
+    全球动力电池市场 <b>TAM 约 1.2万亿人民币（2026E）</b>，CAGR 25-30%。
+    储能市场是第二增长曲线，TAM 约3000亿，CAGR 40%+。
+    行业集中度仍在提升：CR3（宁德+比亚迪+LG）从2023年65%升至2026Q1的70%。
+    </p>
+    <p>
+    但需要注意：行业产能过剩风险。2026年全球动力电池名义产能约2500GWh，需求约1100GWh，
+    产能利用率约44%。这导致价格战风险，二线厂商毛利率已从25%降至12-15%。
+    宁德凭借规模效应将毛利率稳定在22-25%区间。
+    </p>
+
+    <h3>3. 财务信号解读</h3>
+    <div class="grid-2">
+      <div>
+        <p>• 收入增速：2025年+18% → 2026E +22%，增速企稳回升</p>
+        <p>• 毛利率：从2024年20.5%回升至2026Q1 24.2%（锂价回落+产品结构升级）</p>
+        <p>• 净利率：稳定在10-12%</p>
+        <p>• 经营现金流/净利润：1.2x，现金流质量优秀</p>
+      </div>
+      <div>
+        <p>• ROE：约18%，杜邦拆解：净利率11% × 周转率0.8 × 杠杆2.0</p>
+        <p>• CAPEX节奏：资本开支高峰已过（2024年450亿 → 2026E 250亿），进入收获期</p>
+        <p>• 自由现金流：2026年有望转正至150亿+</p>
+      </div>
+    </div>
+
+    <h3>4. 估值分析</h3>
+    <p>
+    当前PE(TTM)约 <b>16.5x</b>，处于10年历史分位的 <b>15-20%</b>（较为低估区间）。
+    对比可比公司：
+    • LG新能源（韩国）：PE 45x（但盈利不稳定）
+    • 比亚迪：PE 22x（含整车业务溢价）
+    • 亿纬锂能：PE 25x
+    • 国轩高科：PE 35x（亏损收窄预期）
+    </p>
+    <p>
+    <b>PEG分析：</b>假设未来3年净利润CAGR 20%，PEG = 16.5/20 = <b>0.83</b>，< 1，估值有支撑。
+    </p>
+
+    <div class="highlight-box">
+      <b>市场定价中可能忽略了什么？</b><br>
+      ① 储能业务的期权价值——市场仍按动力电池估值，未充分定价储能（预计2030年收入占比30%+）；<br>
+      ② 技术授权模式（LRS）的潜在价值——向福特、特斯拉等授权电池技术，轻资产高毛利；<br>
+      ③ 钠离子电池2027年量产后对中低端市场的降维打击。
+    </div>
+
+    <h3>5. 关键变量与情景分析</h3>
+    
+    <div class="grid-2">
+      <div>
+        <div style="font-weight:700; color:#ef4444; margin-bottom:10px;">🔴 亏钱的情景</div>
+        <div class="risk-item">锂价暴涨至30万/吨以上，成本端承压</div>
+        <div class="risk-item">大客户自研电池（特斯拉4680/宝马Gen6）规模化，份额流失</div>
+        <div class="risk-item">中美地缘政治恶化，被制裁或限制美国市场准入</div>
+        <div class="risk-item">固态电池技术突破，现有液态电池产线面临贬值风险</div>
+      </div>
+      <div>
+        <div style="font-weight:700; color:#22c55e; margin-bottom:10px;">🟢 赚钱的情景</div>
+        <div class="catalyst-item">储能业务超预期，2027年收入占比突破25%</div>
+        <div class="catalyst-item">碳酸锂价格保持8-12万/吨，毛利率持续改善至26%+</div>
+        <div class="catalyst-item">海外产能（匈牙利/印尼）投产，规避关税壁垒</div>
+        <div class="catalyst-item">钠离子电池量产打开二轮车/储能新市场</div>
+      </div>
+    </div>
+
+    <h3>6. 综合结论</h3>
+    <div class="highlight-box green" style="font-size:1.1em;">
+      <b>评级：买入（增持）</b><br>
+      <b>目标价区间：</b>280 - 320 元（基于2027E PE 18-22x × 预计EPS 14.5元）<br>
+      <b>核心逻辑一句话：</b>全球动力电池王者，估值处于历史低位（PE分位15-20%），
+      储能+技术授权构成第二增长曲线，当前是周期底部的逆向布局窗口。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 五、投资建议汇总 ═══════════ -->
+<div class="section-title">五、投资建议汇总</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">🎯 个股评级</div>
+    <p style="font-size:1.3em; font-weight:700; color:#22c55e;">宁德时代（300750）— 买入</p>
+    <p>目标价：<b>280-320元</b></p>
+    <p>PE分位 ~17%，较为低估</p>
+    <p>核心逻辑：动力电池龙头，储能第二曲线，估值历史低位</p>
+  </div>
+  <div class="card">
+    <div class="card-title">📊 市场判断</div>
+    <p>整体估值：<span class="tag tag-yellow">适中偏低估</span></p>
+    <p>沪深300 PE分位 48.5%</p>
+    <p>格雷厄姆指数 1.82（安全）</p>
+    <p>策略：逢低分批布局，重视估值保护</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🏆 ETF 推荐汇总</div>
+  <div style="font-size:0.95em; line-height:2.2;">
+    <p><b>🥇 首选：</b>科创创业50ETF（159781）— 估值温度28.8%，3年+29.1%，科技成长Beta</p>
+    <p><b>🥈 稳健：</b>中证500ETF（510500）— 估值温度35.8%，中盘风格，攻守兼备</p>
+    <p><b>🥉 防御：</b>中证红利ETF（515080）— 估值温度65.3%，5年+4.9%，高股息策略</p>
+    <p><b>💡 卫星：</b>半导体ETF（512480）— 估值温度58.7%，3年+36.6%，高弹性配置</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">⚠️ 关键风险提示</div>
+  <div style="line-height:2.2;">
+    <p>1. <b>地缘政治风险：</b>中美关系不确定性可能冲击科技股和新能源板块</p>
+    <p>2. <b>流动性风险：</b>市场缩量下跌若持续，可能触发融资盘连锁平仓</p>
+    <p>3. <b>行业产能过剩：</b>新能源/半导体行业产能利用率偏低，价格战压缩利润</p>
+    <p>4. <b>汇率风险：</b>人民币贬值压力下，北向资金可能持续流出</p>
+    <p>5. <b>估值估算偏差：</b>本报告PE/PB分位基于模型估算，非实时精确数据，仅供参考</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📊 每日股市洞察研报 | {DATE}</p>
+  <p>数据来源：东方财富、天天基金 | 分析工具：Hermes Agent</p>
+  <p style="font-size:0.8em; margin-top:10px;">免责声明：本报告仅供研究参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+</div>
+
+</body>
+</html>
