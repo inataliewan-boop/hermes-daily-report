@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes 保险行业洞察日报 2026-08-07</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#faf8f3; --card-bg:#fefcf7; --text:#3d2b1f; --text-secondary:#6b5b4f;
+  --accent:#c4956a; --accent-light:#e8d5c0; --border:#e0d6c8; --tag-bg:#f0e6d8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:32px 20px 60px}
+header{text-align:center;padding:36px 20px 28px;background:linear-gradient(135deg,#f3e7d5,#faf8f3);border-radius:16px;border:1px solid var(--border);margin-bottom:28px}
+header h1{font-size:28px;color:var(--accent);letter-spacing:1px}
+header .date{color:var(--text-secondary);font-size:14px;margin-top:6px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:24px 26px;margin-bottom:22px;box-shadow:0 2px 8px rgba(61,43,31,.04)}
+.card h2{font-size:20px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--accent-light);display:flex;align-items:center;gap:8px}
+.item{margin-bottom:16px}
+.item:last-child{margin-bottom:0}
+.item h3{font-size:16px;margin-bottom:4px;color:var(--text)}
+.item p{font-size:14px;color:var(--text-secondary);margin-bottom:4px}
+.tag{display:inline-block;background:var(--tag-bg);color:var(--accent);border-radius:20px;padding:1px 12px;font-size:12px;margin-right:8px}
+.src{font-size:12px;color:var(--text-secondary)}
+.so-what{background:var(--tag-bg);border-left:3px solid var(--accent);padding:8px 12px;border-radius:6px;font-size:13px;color:var(--text);margin-top:6px}
+.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ov-item{background:var(--card-bg);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px}
+.ov-item .n{font-size:13px;color:var(--accent);font-weight:600}
+.ov-item p{font-size:14px;color:var(--text)}
+.chart-box{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:22px}
+.chart-box h3{font-size:15px;color:var(--text-secondary);text-align:center;margin-bottom:10px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:700px){.charts{grid-template-columns:1fr}}
+footer{text-align:center;color:var(--text-secondary);font-size:12px;margin-top:36px;padding-top:16px;border-top:1px solid var(--border)}
+a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>🏥 Hermes 保险行业洞察日报</h1>
+  <div class="date">2026年8月7日 · 星期五 · 健康险视角 | 数据截至 2026-08-07</div>
+</header>
+
+<!-- 今日概览 -->
+<div class="card">
+  <h2>📊 今日概览</h2>
+  <div class="overview">
+    <div class="ov-item"><div class="n">01 · 市场</div><p>上半年健康险保费6438亿元，行业分化加剧，竞争转向"产品+服务生态"</p></div>
+    <div class="ov-item"><div class="n">02 · 监管</div><p>金融监管总局年中会议定调：防风险、强监管、促高质量发展</p></div>
+    <div class="ov-item"><div class="n">03 · 战略</div><p>太保"大健康"升级"大康养"，头部险企加速健康管理生态卡位</p></div>
+    <div class="ov-item"><div class="n">04 · 产品</div><p>惠民保进入"分层定制"时代，精细化运营成迭代关键</p></div>
+    <div class="ov-item"><div class="n">05 · 趋势</div><p>百万医疗险内卷加剧，带病体+中端医疗成新增长极</p></div>
+  </div>
+</div>
+
+<!-- 图表区 -->
+<div class="charts">
+  <div class="chart-box">
+    <h3>2026上半年保险市场运行（亿元）</h3>
+    <canvas id="chart1"></canvas>
+    <div style="font-size:11px;color:var(--text-secondary);text-align:center;margin-top:6px">数据：中国保险行业协会 / 每经网 / 人民网 2026-07-28~08-02</div>
+  </div>
+  <div class="chart-box">
+    <h3>全球保险科技市场规模预测（亿美元）</h3>
+    <canvas id="chart2"></canvas>
+    <div style="font-size:11px;color:var(--text-secondary);text-align:center;margin-top:6px">数据：Business Research Insights · CAGR 18%（2026→2035）</div>
+  </div>
+</div>
+
+<!-- 行业动态 -->
+<div class="card">
+  <h2>📋 行业动态</h2>
+  <div class="item">
+    <h3>上半年健康险保费收入6438亿元，行业加速分化</h3>
+    <p><span class="tag">市场数据</span>2026年政府工作报告首次明确提出"加快发展商业健康保险"。上半年健康险保费6438亿元，各主体表现分化：太平洋健康险与蚂蚁阿福达成长期战略合作并推出带智能体新产品；平安健康险与乐刻运动围绕运动行为激励达成合作；平安财险7月1日联合宸汐科技发布带病体健康保障产品（聚焦乳腺癌术后人群）。</p>
+    <div class="so-what">💡 So What：单纯靠价格战、渠道铺设抢市场的时代已过去，竞争围绕产品创新、健康服务生态、数字化风控展开——健康险进入"能力竞争"阶段。</div>
+    <div class="src">📎 <a href="https://www.nbd.com.cn/articles/2026-07-28/4524487.html">每经网</a> · 2026-07-28</div>
+  </div>
+  <div class="item">
+    <h3>上半年保险市场总体平稳：原保费3.86万亿，同比+3.3%</h3>
+    <p><span class="tag">行业数据</span>中国保险行业协会数据：上半年原保险保费收入3.86万亿元（+3.3%）；赔款与给付支出1.4万亿元（+3.8%）。其中财产险公司9846亿元（+2.1%），人身险公司保费收入稳步增长，业务结构持续优化。</p>
+    <div class="so-what">💡 So What：赔付支出增速（3.8%）快于保费增速（3.3%），行业整体赔付压力上行，健康险定价与风控需更审慎。</div>
+    <div class="src">📎 <a href="http://finance.people.com.cn/n1/2026/0802/c1004-40772423.html">人民网</a> · 2026-08-02</div>
+  </div>
+  <div class="item">
+    <h3>中国保险行业协会例行发布会：太保宣布"大康养"战略</h3>
+    <p><span class="tag">行业会议</span>8月3日发布会，太保表示"十五五"期间将"大健康"战略升级为"大康养"核心战略，确立"1234"框架：打造一体化生态，强化保险投资与康养服务两大集群协同，聚焦增长共生、场景共融、价值共创，夯实组织、人才、科技、品质四项支撑。</p>
+    <div class="so-what">💡 So What："保险+康养"从概念走向顶层战略，全生命周期保障成为头部险企差异化主线。</div>
+    <div class="src">📎 <a href="https://app.xinhuanet.com/news/article.html?articleId=20260803ed2f7c4d714549fc9b1b60ec6eaa96d6">新华网</a> · 2026-08-03</div>
+  </div>
+  <div class="item">
+    <h3>保险行业协会：近10年商业健康险年均复合增长率超20%</h3>
+    <p><span class="tag">行业数据</span>商业健康险近10年年均复合增长率超20%，已成为人身险增长的核心引擎。</p>
+    <div class="so-what">💡 So What：高基数下增速或将换挡，从"规模驱动"转向"价值驱动"，带病体、中端医疗、护理险是下一程看点。</div>
+    <div class="src">📎 <a href="https://www.sino-life.com/c/539/539768.shtml">保险行业协会（转载）</a> · 2026</div>
+  </div>
+  <div class="item">
+    <h3>健康险公司正将更多的伙伴拉上牌桌</h3>
+    <p><span class="tag">生态趋势</span>经济观察网观察：健康险公司加速与医院、药企、健康管理机构、运动平台等生态伙伴共建保障网络，从"单打独斗"转向"生态共舞"。</p>
+    <div class="so-what">💡 So What：生态伙伴关系正成为健康险产品定价、风控与服务的核心竞争力来源。</div>
+    <div class="src">📎 <a href="https://finance.sina.com.cn/roll/2026-07-10/doc-inihhrah4021493.shtml">经济观察网/新浪财经</a> · 2026-07-10</div>
+  </div>
+</div>
+
+<!-- 政策新规 -->
+<div class="card">
+  <h2>🏛️ 政策新规</h2>
+  <div class="item">
+    <h3>金融监管总局发布2026年规章制定工作计划：多项保险管理办法将修订</h3>
+    <p><span class="tag">监管文件</span>预备修订《保险资金运用管理办法》（现行2018年版已不适应当前投资渠道、比例与风险管理要求）、《保险公司偿付能力管理办法》（与"偿二代"二期工程全面衔接，资本认定更严、最低资本要求更高），并拟制定多项新规，保险业迎来全链条法治化严监管。</p>
+    <div class="so-what">💡 So What：偿付能力与资金运用规则趋严，健康险公司需同步校准资本配置与资产负债管理，中小主体合规成本上升。</div>
+    <div class="src">📎 <a href="https://finance.sina.com.cn/money/insurance/bxdt/2026-06-24/doc-inienxzw6224637.shtml">新浪财经</a> / <a href="https://finance.cctv.com/2026/06/23/ARTIlD0oVaNYFl6ikGOPrO88260623.shtml">央视网</a> · 2026-06-23/24</div>
+  </div>
+  <div class="item">
+    <h3>金融监管总局年中工作会议：防风险、强监管、促高质量发展</h3>
+    <p><span class="tag">监管定调</span>7月27日总局召开系统党的建设工作会议暨2026年年中工作会议，划定下半年工作主线：防范化解金融风险、强化监管效能、促进高质量发展。</p>
+    <div class="so-what">💡 So What：下半年监管重点仍是风险防控与规范经营，健康险产品创新需在合规框架内推进，"创新与稳健"的平衡是主旋律。</div>
+    <div class="src">📎 <a href="https://finance.cctv.com/2026/08/02/ARTIuUCIalcPDLjeBpRA8Ytr260802.shtml">金融时报/央视网</a> · 2026-08-02</div>
+  </div>
+</div>
+
+<!-- 前沿趋势 -->
+<div class="card">
+  <h2>🔮 前沿趋势</h2>
+  <div class="item">
+    <h3>NTT DATA《Insurtech Global Outlook 2026》：保险业处于结构性拐点</h3>
+    <p><span class="tag">国际研报</span>报告指出保险业面临结构性拐点——风险演变速度已超过传统模型与产品能力，AI与数字化成为应对不确定性的核心杠杆。</p>
+    <div class="so-what">💡 So What：健康险的风险图谱（新疗法、长尾疾病、带病生存）快速演变，动态定价与实时风控模型是必然方向。</div>
+    <div class="src">📎 <a href="https://www.nttdata.com/global/en/news/press-release/2026/june/061000">NTT DATA</a> · 2026-06-10</div>
+  </div>
+  <div class="item">
+    <h3>全球保险科技市场2026年206.4亿美元，2035年将达916.7亿美元</h3>
+    <p><span class="tag">市场预测</span>2026-2035年复合年增长率18%。72%的保险公司优先数字化转型，65%消费者偏好数字化保险服务，58%公司增加自动化投入；网络安全与数据隐私是主要障碍。</p>
+    <div class="so-what">💡 So What：健康险数字化从"渠道线上化"走向"全链路智能化"，数据合规能力成为保险科技投入的隐形门槛。</div>
+    <div class="src">📎 <a href="https://www.businessresearchinsights.com/zh/market-reports/insurtech-market-118064">Business Research Insights</a> · 2026</div>
+  </div>
+  <div class="item">
+    <h3>德勤2026保险展望：行为分析驱动的超个性化成核心策略</h3>
+    <p><span class="tag">国际研报</span>德勤强调以客户为中心，险企通过合作伙伴关系构建持续反馈闭环与行为分析，实现超个性化产品与服务；中国视角聚焦商保创新药目录落地实施与AI在商业健康险中的价值转型。</p>
+    <div class="so-what">💡 So What：行为数据（运动、健康管理参与度）将逐步进入定价与核保因子，个性化定价时代渐近。</div>
+    <div class="src">📎 <a href="https://www.deloitte.com/cn/en/Industries/insurance/perspectives/2026-insurance-industry-outlook.html">Deloitte</a> / <a href="https://www.deloitte.com/cn/en/Industries/life-sciences-health-care/perspectives/china-lshc-industry-outlook-survey-2026.html">Deloitte China LSHC</a> · 2026</div>
+  </div>
+</div>
+
+<!-- 保司动态 -->
+<div class="card">
+  <h2>🏢 保司动态</h2>
+  <div class="item">
+    <h3>中国太保：大健康→大康养战略升级，"1234"框架落地</h3>
+    <p>推动从单点服务到全链条、单向赋能到双向赋能、主业帮扶到自我造血三大转变，形成产服深度融合、轻重资产结合、全链路覆盖的差异化打法。</p>
+    <div class="src">📎 <a href="https://app.xinhuanet.com/news/article.html?articleId=20260803ed2f7c4d714549fc9b1b60ec6eaa96d6">新华网</a> · 2026-08-03</div>
+  </div>
+  <div class="item">
+    <h3>平安系：健康险×乐刻运动、财险×宸汐科技双线布局</h3>
+    <p>平安健康险与乐刻运动围绕运动行为激励与主动健康管理达成合作意向；平安财险7月1日联合上海宸汐科技发布带病体健康保障产品，聚焦乳腺癌术后人群，覆盖复发、转移及全身二次原发肿瘤风险。</p>
+    <div class="so-what">💡 So What：平安将"运动激励"与"细分病种带病体"两条新赛道同时押注，代表头部险企对健康险增量的两种探索路径。</div>
+    <div class="src">📎 <a href="https://www.nbd.com.cn/articles/2026-07-28/4524487.html">每经网</a> · 2026-07-28</div>
+  </div>
+  <div class="item">
+    <h3>太平洋健康险×蚂蚁阿福：长期战略合作+带智能体新产品</h3>
+    <p>双方宣布长期战略合作，联合推出带有智能体的新产品，探索AI智能体在健康险投保、服务与理赔全流程中的应用。</p>
+    <div class="src">📎 <a href="https://www.nbd.com.cn/articles/2026-07-28/4524487.html">每经网</a> · 2026-07-28</div>
+  </div>
+  <div class="item">
+    <h3>中荷人寿获2026"全球保险科技数字化转型创新"奖</h3>
+    <p>"中荷好康养"服务品牌突破传统事后赔付模式，延伸健康预防、问诊、慢病管理全链条；"荷护健康"系统已为16.2万客户提供50余项健康关怀服务；智能客服矩阵年均交互超60万次，外呼机器人让催缴、回访效率提升3倍。</p>
+    <div class="so-what">💡 So What：中小险企以"服务+科技"弯道超车，健康管理服务从成本项转化为客户留存与品牌资产。</div>
+    <div class="src">📎 <a href="https://cn.chinadaily.com.cn/a/202607/28/WS6a686da3a310d709c2fc0378.html">中国日报网</a> · 2026-07-28</div>
+  </div>
+  <div class="item">
+    <h3>众安在线：众民保·百万医疗险2026持续深耕带病体市场</h3>
+    <p>作为"医+药+保"生态闭环的核心产品线，众民保系列主打带病体可投保，以明确的除外责任清单（糖尿病并发症、脊柱/椎间盘疾病等明细化列示）实现"宽进严出"的定价平衡。</p>
+    <div class="src">📎 <a href="https://cps.qixin18.com/apps/cps/bxz1101818/product/detail?prodId=105433&planId=131155">产品详情（转载）</a> · 2026</div>
+  </div>
+</div>
+
+<!-- 产品亮点 -->
+<div class="card">
+  <h2>💡 产品亮点</h2>
+  <div class="item">
+    <h3>平安"医无忧"：0免赔阶梯赔付+256种特药覆盖</h3>
+    <p><span class="tag">百万医疗升级</span>2026年7月热销产品拆解：以"0免赔+阶梯赔付"为核心差异化（小额住院也能赔，体验感知强），特药目录扩充至256种，直击百万医疗险"高免赔、体验差"两大痛点。</p>
+    <div class="so-what">💡 So What：0免赔阶梯赔付是百万医疗险破内卷的关键设计——通过小额理赔提升获赔感知，换续保粘性与口碑传播。</div>
+    <div class="src">📎 <a href="https://www.163.com/dy/article/L38J8D9U0518Q1VT.html">21世纪经济报道/网易</a> · 2026-08-06</div>
+  </div>
+  <div class="item">
+    <h3>平安财险×宸汐科技：乳腺癌术后带病体保障产品</h3>
+    <p><span class="tag">带病体创新</span>全面覆盖乳腺癌复发、转移及全身二次原发肿瘤风险，为术后人群提供可负担保障。目标人群画像极其精准（术后人群），保障责任高度聚焦，定价与风控依托术后随访与健康管理服务闭环。</p>
+    <div class="so-what">💡 So What：带病体产品的正确打开方式=极细分人群+极聚焦责任+服务闭环风控，而非"大而全"的带病体万能险。</div>
+    <div class="src">📎 <a href="https://www.nbd.com.cn/articles/2026-07-28/4524487.html">每经网</a> · 2026-07-28</div>
+  </div>
+  <div class="item">
+    <h3>百万医疗险穿越内卷：中端医疗与带病体是两大出路</h3>
+    <p><span class="tag">行业观察</span>主流百万医疗险高度同质：数百万保额、万元免赔、住院+特殊门诊。中金公司指出供给与需求错配——供给集中于健康人群的医保目录内自付部分，目录外（高端医疗、创新疗法）与带病体保障明显不足。</p>
+    <div class="so-what">💡 So What：下一个产品红利在"目录外保障"与"次标体人群"，谁能用数据把这两块做精，谁就赢得下一轮增长。</div>
+    <div class="src">📎 <a href="https://h5.ifeng.com/c/vivoArticle/v0023dIVMWAW-_8C3Wgm8ykvPPD8-_PesqqPKiQWb4qjgc2zg__">凤凰网</a> · 2026</div>
+  </div>
+</div>
+
+<!-- 消费者洞察 -->
+<div class="card">
+  <h2>👥 消费者洞察</h2>
+  <div class="item">
+    <h3>供给需求错配：消费者要的"目录外+带病可保"仍未满足</h3>
+    <p>商业医疗险供给集中于健康人群医保目录内自付部分；消费者真正稀缺的是高端医疗、创新疗法等目录外保障，以及带病体、慢病人群的可投保机会。</p>
+    <div class="so-what">💡 So What：健康险消费者正在分层——标准体要"体验与特药"，次标体要"能买上"，产品矩阵必须两端都覆盖。</div>
+    <div class="src">📎 <a href="https://h5.ifeng.com/c/vivoArticle/v0023dIVMWAW-_8C3Wgm8ykvPPD8-_PesqqPKiQWb4qjgc2zg__">凤凰网（中金公司分析）</a> · 2026</div>
+  </div>
+  <div class="item">
+    <h3>惠民保认知升级：从"要不要买"到"用得上吗"</h3>
+    <p>"惠民保用得上吗""低保费是否意味着低保障""买了惠民保还要买其他商业保险吗"成为消费者高频疑问，保障深度与理赔体验成为选择关键。</p>
+    <div class="so-what">💡 So What：惠民保的教育价值正在转化为商业健康险的增量需求——被惠民保"教育"过的用户，是百万医疗与中端医疗的精准客群。</div>
+    <div class="src">📎 <a href="http://health.people.com.cn/n1/2026/0103/c14739-40637808.html">人民网</a> · 2026-01-03</div>
+  </div>
+</div>
+
+<!-- 市场机会 -->
+<div class="card">
+  <h2>🎯 市场机会</h2>
+  <div class="item">
+    <h3>机会一：带病体细分赛道进入"可复制"阶段</h3>
+    <p>乳腺癌术后产品验证了"细分人群+聚焦责任+服务闭环"的可复制路径，预计将向糖尿病、心脑血管、慢阻肺等大病种术后/慢病人群快速扩散。</p>
+  </div>
+  <div class="item">
+    <h3>机会二："保险+健康管理"从增值服务走向定价因子</h3>
+    <p>运动激励（平安×乐刻）、AI互动健康险（太保×蚂蚁）、带智能体产品（太平洋×蚂蚁阿福）密集落地——健康行为数据正成为定价与风控的新变量，先建立行为数据闭环的机构将获得定价优势。</p>
+  </div>
+</div>
+
+<!-- 用户运营专栏 -->
+<div class="card">
+  <h2>📱 用户运营专栏</h2>
+  <div class="item">
+    <h3>2026版惠民保精细化运营：分层架构+"按需定制"成标配</h3>
+    <p><span class="tag">运营案例</span>杭州"西湖益联保"推出150元基础版/300元升级版（升级含更高保额、特药扩容、海外药、CAR-T、质子重离子、住院津贴、陪诊）；河北两款省级惠民保年龄分层定价共9种价格；山东"齐鲁保2026"3个版本×3个年龄段，19-299元。</p>
+    <div class="so-what">💡 So What：存量时代惠民保运营核心=分层定价+差异化权益包，用"基础版引流、升级版提客单"，同时以年龄分层校准风险与价格，值得健康险私域运营直接借鉴。</div>
+    <div class="src">📎 <a href="https://www.sohu.com/a/1043023928_267106">证券日报/搜狐</a> · 2026-06-29</div>
+  </div>
+  <div class="item">
+    <h3>方法论：CLV + RFM 用户分层，识别"超级用户"</h3>
+    <p><span class="tag">运营方法论</span>全域与私域精细化运营下，用CLV（用户生命周期价值）识别长期价值用户，用RFM（最近消费/频次/金额）做分层，针对不同生命周期与价值层级制定差异化运营策略，推动复购与升级转化。</p>
+    <div class="so-what">💡 So What：健康险低频高价，续保与升级是核心指标——RFM分层后重点运营"高价值高活跃"用户做加保，用内容与健康服务激活"高价值低活跃"用户防流失。</div>
+    <div class="src">📎 <a href="https://www.growingio.com/news/018">GrowingIO</a> · 2026-04-19</div>
+  </div>
+  <div class="item">
+    <h3>私域启示：保险服务低频，要向医疗/教育等高频场景借力</h3>
+    <p><span class="tag">运营案例</span>头部保险机构意识到服务相对低频，正切入医疗、教育等比保险续约更高频的场景；用户不会删除车险工作人员的企微，因为第二年续保就在企微完成——私域对续保率的撬动已有"单月保费增长13%"的实证案例。</p>
+    <div class="so-what">💡 So What：健康险私域的正确姿势=用高频健康服务（问诊、体检、慢病打卡）养关系，用低频保单（续保、升级、加保）做转化，企微是续保的主阵地。</div>
+    <div class="src">📎 <a href="https://about.bossgoo.com/about/report/4549.html">见实/全球贸易通</a> · 2026</div>
+  </div>
+</div>
+
+<!-- 精算小课堂 -->
+<div class="card">
+  <h2>📐 精算小课堂：短期健康险"赔付率低位徘徊"的定价启示</h2>
+  <div class="item">
+    <p><span class="tag">本期主题</span><strong>现象</strong>：以百万医疗险为代表的短期健康险"低保费、高保额"爆发式扩张，但行业赔付率低位徘徊，"性价比成谜"的讨论持续升温（21经济网，2026-03-23）。</p>
+    <p><strong>精算视角拆解</strong>：赔付率 = 已发生赔款 ÷ 已赚保费。短期健康险赔付率偏低，通常有四个来源：</p>
+    <p>① <strong>定价充足性</strong>——竞争性定价下保费仍高于预期赔付，形成承保利润缓冲；<br>
+    ② <strong>IBNR低估风险</strong>——已发生未报告赔款（Incurred But Not Reported）若被低估，账面赔付率将"虚低"，未来年度会补提，当期利润含水分；<br>
+    ③ <strong>免赔额+续保筛选</strong>——万元免赔过滤小额赔案，"健康体留存、次标体流失"使存量组合风险改善，赔付率自然走低；<br>
+    ④ <strong>责任限制</strong>——除外责任明细化（如糖尿病并发症、脊柱疾病等）压缩了实际赔付空间。</p>
+    <p><strong>数据质量警示</strong>：经典案例中，某险企理赔系统将"出险日期"默认录为"当前系统日期"，导致赔付率虚高、定价误判。健康险同理——就医数据、理赔数据、健康管理行为数据的质量，直接决定定价因子（年龄、性别、疾病史、健康行为）的精度与IBNR估算的可靠性。</p>
+    <div class="so-what">💡 So What：赔付率低不等于产品好、也不等于可以降价抢量。精算上要同时盯住"账面赔付率"与"含IBNR的终极赔付率"两条线；运营上，续保筛选带来的选择性偏差必须在定价模型中显式处理，否则规模越大、长尾风险越集中。</div>
+    <div class="src">📎 <a href="https://www.21jingji.com/article/20260323/herald/5168b0249c3f96e32cf972ca4853aba9.html">21经济网</a> · 2026-03-23 / <a href="https://www.eshutong.com/archives/46099.html">精算案例</a> · 2026</div>
+  </div>
+</div>
+
+<footer>
+  🏥 Hermes 保险行业洞察日报 · 由 Hermes Agent 生成<br>
+  生成时间：2026-08-07 11:00 CST · 数据来源见各条目标注<br>
+  ⚠️ 本报告基于公开信息整理，仅供内部参考，不构成任何投资或投保建议
+</footer>
+
+</div>
+
+<script>
+const c1 = document.getElementById('chart1');
+new Chart(c1, {
+  type: 'bar',
+  data: {
+    labels: ['原保险保费收入', '赔款与给付支出', '财产险保费', '健康险保费'],
+    datasets: [{
+      label: '金额（亿元）',
+      data: [38600, 14000, 9846, 6438],
+      backgroundColor: ['#c4956a', '#e8d5c0', '#d9b89a', '#b98a5e'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, grid: { color: '#f0e6d8' } } }
+  }
+});
+const c2 = document.getElementById('chart2');
+new Chart(c2, {
+  type: 'line',
+  data: {
+    labels: ['2026', '2035'],
+    datasets: [{
+      label: '全球保险科技市场规模（亿美元）',
+      data: [206.4, 916.7],
+      borderColor: '#c4956a',
+      backgroundColor: 'rgba(196,149,106,.15)',
+      fill: true,
+      tension: .35,
+      pointRadius: 6,
+      pointBackgroundColor: '#c4956a'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, grid: { color: '#f0e6d8' } } }
+  }
+});
+</script>
+</body>
+</html>
