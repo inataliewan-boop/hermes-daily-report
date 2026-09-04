@@ -123,7 +123,7 @@ footer{margin-top:50px;text-align:center;font-size:12px;color:var(--mut);border-
     <span class="hero-tag">2026 H2 · 攻坚测算</span>
     <h1>直营渠道健康险赔付率 40% 达标测算方案</h1>
     <p>把 2026 全年事故制赔付率，从当前 <b>45.17%</b> 拉回 <b>40%</b></p>
-    <div class="meta">编制：万紫娟（健康险用户运营）　｜　口径基准：2026-09-04 与赔付看板老师确认</div>
+    <div class="meta">口径基准：2026-09-04 精益事故制看板，已确认数据口径，大盘赔持续恶化</div>
   </div>
 </div>
 
@@ -177,14 +177,44 @@ footer{margin-top:50px;text-align:center;font-size:12px;color:var(--mut);border-
 
     <div class="sub-title">大盘赔付率持续恶化（5月→7月）</div>
     <div class="chart-box">
-      <div class="ct">终极赔付率走势（%），红线为 40% 目标</div>
-      <div class="bars">
-        <div class="bar"><div class="fill" style="height:88%;background:#f59e0b"><span>40.65</span></div><div class="fl">5月</div><div class="fv">边际 —</div></div>
-        <div class="bar"><div class="fill" style="height:95%;background:#f59e0b"><span>43.46</span></div><div class="fl">6月</div><div class="fv">边际56.8%</div></div>
-        <div class="bar"><div class="fill" style="height:101%;background:var(--red)"><span>45.17</span></div><div class="fl">7月</div><div class="fv">边际55.1%</div></div>
-        <div class="bar"><div class="fill tl" style="height:89%;background:#fff"></div><div class="fl">目标 40%</div><div class="fv">红线</div></div>
+      <div class="ct">大盘终极赔付率走势（%，红线 = 40% 考核目标，已连续3月恶化）</div>
+      <svg viewBox="0 0 620 250" width="100%" style="max-height:270px" role="img" aria-label="赔付率走势图">
+        <g stroke="#eef1f6" stroke-width="1">
+          <line x1="45" y1="30" x2="600" y2="30"/>
+          <line x1="45" y1="76.25" x2="600" y2="76.25"/>
+          <line x1="45" y1="122.5" x2="600" y2="122.5"/>
+          <line x1="45" y1="168.75" x2="600" y2="168.75"/>
+          <line x1="45" y1="215" x2="600" y2="215"/>
+        </g>
+        <g fill="#9ca3af" font-size="11" text-anchor="end">
+          <text x="38" y="33.5">50%</text>
+          <text x="38" y="79.75">45%</text>
+          <text x="38" y="126">40%</text>
+          <text x="38" y="172.25">35%</text>
+          <text x="38" y="218.5">30%</text>
+        </g>
+        <line x1="45" y1="122.5" x2="600" y2="122.5" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="7 5"/>
+        <text x="598" y="113.5" fill="#dc2626" font-size="12.5" font-weight="700" text-anchor="end">目标 40%</text>
+        <path d="M70,116.5 L320,90.5 L570,74.7 L570,215 L70,215 Z" fill="rgba(37,99,235,0.10)"/>
+        <path d="M70,116.5 L320,90.5 L570,74.7" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="70" cy="116.5" r="6" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+        <circle cx="320" cy="90.5" r="6" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+        <circle cx="570" cy="74.7" r="6" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
+        <text x="70" y="107" fill="#6b7280" font-size="12" font-weight="700" text-anchor="middle">40.65%</text>
+        <text x="320" y="81" fill="#6b7280" font-size="12" font-weight="700" text-anchor="middle">43.46%</text>
+        <text x="570" y="65" fill="#dc2626" font-size="12" font-weight="800" text-anchor="middle">45.17%</text>
+        <g fill="#6b7280" font-size="13" text-anchor="middle">
+          <text x="70" y="237">5月</text>
+          <text x="320" y="237">6月</text>
+          <text x="570" y="237">7月</text>
+        </g>
+      </svg>
+      <div class="legend">
+        <span><i style="background:#2563eb"></i>终极赔付率（蓝线）</span>
+        <span><i style="background:repeating-linear-gradient(90deg,#dc2626,#dc2626 4px,transparent 4px,transparent 8px)"></i>目标 40%</span>
+        <span><i style="background:rgba(37,99,235,.15)"></i>已超目标区间</span>
       </div>
-      <div class="legend"><span><i style="background:#f59e0b"></i>赔付率</span><span><i style="background:var(--red)"></i>突破阈值</span><span><i style="background:repeating-linear-gradient(45deg,#dc2626,#dc2626 4px,transparent 4px,transparent 8px)"></i>目标线</span></div>
+      <div class="callout red" style="margin-top:14px">单月边际赔付率：6月 <b>56.8%</b>、7月 <b>55.1%</b>——当前每月的出险速度远超 40% 目标线，是恶化最直接的信号，且累计已超目标 <b>5.17pct</b>。</div>
     </div>
 
     <div class="sub-title">1-7月各二级分类赔付率全景</div>
@@ -495,7 +525,7 @@ footer{margin-top:50px;text-align:center;font-size:12px;color:var(--mut);border-
     </details>
   </section>
 
-  <footer>健康险赔付率 40% 达标测算方案 · 最终版 · 2026-09-04 · 万紫娟（健康险用户运营）｜数据来源：7月评估月赔付、保单留存by月、产品销售名称细分-7月赔付预估</footer>
+  <footer>健康险赔付率 40% 达标测算方案 · 最终版 · 2026-09-04 ｜ 数据来源：7月评估月赔付、保单留存by月、产品销售名称细分-7月赔付预估（口径基准：精益事故制看板）</footer>
 </div>
 
 <script>
