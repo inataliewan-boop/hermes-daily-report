@@ -132,7 +132,7 @@ footer{margin-top:50px;text-align:center;font-size:12px;color:var(--mut);border-
   <div class="kpis">
     <div class="kpi red"><div class="label">当前赔付率（7月）</div><div class="val">45.17%</div><div class="sub">连续3月爬升，已超目标 5.17pct</div></div>
     <div class="kpi green"><div class="label">年度目标</div><div class="val">40%</div><div class="sub">KPI 权重 40%，利润率≥1% 前提</div></div>
-    <div class="kpi amber"><div class="label">刚性缺口</div><div class="val">1200～1500 万</div><div class="sub">纯靠分母冲量无法弥补</div></div>
+    <div class="kpi amber"><div class="label">刚性缺口（最新复算）</div><div class="val">1700～2300 万</div><div class="sub">纯靠分母冲量无法弥补 · 见文末「最新测算更新」</div></div>
     <div class="kpi blue"><div class="label">解法</div><div class="val">分子控赔 + 分母调优 + 12月纯稀释</div><div class="sub">三管齐下，双轮驱动</div></div>
   </div>
 
@@ -143,6 +143,7 @@ footer{margin-top:50px;text-align:center;font-size:12px;color:var(--mut);border-
       <li><a href="#status">现状与恶化趋势</a></li>
       <li><a href="#fw">口径与测算框架</a></li>
       <li><a href="#calc">全年达成测算</a></li>
+      <li><a href="#update">最新测算更新（09-07）</a></li>
       <li><a href="#path">实现路径</a></li>
       <li><a href="#appendix">附录·背景参考</a></li>
     </ul>
@@ -317,6 +318,43 @@ footer{margin-top:50px;text-align:center;font-size:12px;color:var(--mut);border-
         <p><b>E_new 反推</b>：E_new = Ω_gap/(40%-M_max)。当 M_max=34.32%，Ω_gap=2,187万 → E_new = <b>3.85亿</b>（远高于中性5,245万，故不可行）。此式为反推公式，非恒等式校验。</p>
       </div>
     </details>
+  </section>
+
+
+  <!-- 最新测算更新 2026-09-07 -->
+  <section id="update">
+    <div class="sec-head"><div class="num">4+</div><div><h2>最新测算更新（2026-09-07 · 基于事故月赔付表复算）</h2><div class="desc">评估月202607 · 具体产品颗粒度 · 替代原「四」节全年LR与缺口结论</div></div></div>
+
+    <div class="callout amber"><b>口径变更说明</b>：本版基于最新「事故月赔付表（评估月202607）」+「完整留存三角（2025-01～2026-09，含2026年批次）」复算。<b>原「四」节按 9-12月存量释放 E_exist=3,913万（仅含2025老批次）</b>；本版按完整留存表算得 <b>E_exist=1.68亿（含2026年1-8月批次存量释放）</b>，缺口相应上修。以下结论为本版权威结论，替代原「四」节。</div>
+
+    <div class="sub-title">1-7月实绩（事故制 · 评估月202607）</div>
+    <div class="grid3">
+      <div class="card"><p>累计已赚</p><div class="big">3.371亿</div></div>
+      <div class="card"><p>累计终极赔付</p><div class="big">1.516亿</div></div>
+      <div class="card"><p>终极赔付率</p><div class="big" style="color:var(--red)">45.0%</div></div>
+    </div>
+
+    <div class="sub-title">全年达成测算：三档产能 × 三档 M_real（基准：存量LR=45%）</div>
+    <table>
+      <thead><tr><th>产能</th><th class="num">M_real</th><th class="num">全年已赚(亿)</th><th class="num">全年赔付(亿)</th><th class="num">全年赔付率</th><th class="num">缺口(需控赔,万)</th></tr></thead>
+      <tbody>
+        <tr><td>3.0亿</td><td class="num">23%</td><td class="num">6.01</td><td class="num">2.61</td><td class="num neg">43.4%</td><td class="num">2,020</td></tr>
+        <tr><td>3.0亿</td><td class="num">25%</td><td class="num">6.01</td><td class="num">2.62</td><td class="num neg">43.5%</td><td class="num">2,117</td></tr>
+        <tr><td>3.0亿</td><td class="num">28%</td><td class="num">6.01</td><td class="num">2.63</td><td class="num neg">43.8%</td><td class="num">2,262</td></tr>
+        <tr><td><b>3.4亿</b></td><td class="num"><b>25%</b></td><td class="num">6.08</td><td class="num">2.63</td><td class="num neg">43.3%</td><td class="num">2,020</td></tr>
+        <tr><td>4.0亿</td><td class="num">23%</td><td class="num">6.17</td><td class="num">2.64</td><td class="num neg">42.8%</td><td class="num">1,747</td></tr>
+        <tr><td>4.0亿</td><td class="num">25%</td><td class="num">6.17</td><td class="num">2.66</td><td class="num neg">43.0%</td><td class="num">1,876</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sub-title">三个关键发现</div>
+    <div class="grid3">
+      <div class="card"><span class="tag red">超赔盘子</span><h3>存量 LR 45% &gt; 目标 40%</h3><p>9-12月存量释放越多，摊入超赔越多，反而<b>推高</b>整体赔付率。扩分母不能只放量，须同时优化分母端产品结构。</p></div>
+      <div class="card"><span class="tag amber">M_real 复核</span><h3>具体产品加权 = 26.3%</h3><p>用191个具体产品+方案目标结构加权，当年终极LR≈26.3%（含爬坡口径）；新单当年边际受等待期压制，实际约24~26%，基准取25%合理。</p></div>
+      <div class="card"><span class="tag blue">分子主战场</span><h3>控赔 1700~2300万</h3><p>控赔100万 ≈ 少卖4,320万财保。分子端控赔是最优路径，分母端结构优化为辅助。</p></div>
+    </div>
+
+    <div class="callout red"><b>核心结论</b>：即使分母全力放量（4亿产能 + M_real=23% 最乐观），全年仍为 <b>42.8%</b>，距 40% 刚性差距约 <b>1,747万</b>。纯靠分母冲量<b>无法达成</b>；必须分子端控赔 <b>1,700~2,300万</b>，辅以分母端结构调优（A/B档70%+）与12月等待期纯稀释。</div>
   </section>
 
   <!-- 五、实现路径 -->
