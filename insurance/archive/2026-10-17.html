@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes 保险行业洞察日报 · 2026-10-17</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#faf8f3; --card-bg:#fefcf7; --text:#3d2b1f; --text-secondary:#6b5b4f;
+  --accent:#c4956a; --accent-light:#e8d5c0; --border:#e0d6c8; --tag-bg:#f0e6d8;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0 16px 60px; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.75; font-size:15px;
+}
+.wrap{max-width:900px;margin:0 auto;}
+header{padding:38px 0 18px;text-align:center;border-bottom:1px solid var(--border);margin-bottom:26px;}
+header h1{font-size:26px;margin:0 0 8px;letter-spacing:1px;font-weight:700;}
+header .sub{color:var(--text-secondary);font-size:13px;letter-spacing:.5px;}
+header .meta{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+header .meta span{background:var(--tag-bg);color:var(--text-secondary);font-size:12px;padding:3px 12px;border-radius:20px;}
+section{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 1px 3px rgba(160,140,120,.06);}
+h2{font-size:18px;margin:0 0 16px;display:flex;align-items:center;gap:9px;font-weight:700;}
+h2 .em{font-size:20px;}
+h3{font-size:15.5px;margin:20px 0 8px;color:var(--text);font-weight:700;}
+h3:first-of-type{margin-top:0;}
+p{margin:8px 0;}
+ul{margin:8px 0;padding-left:20px;}
+li{margin:6px 0;}
+.src{font-size:12.5px;color:var(--text-secondary);margin-top:8px;}
+.src a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent-light);}
+.brief li{margin:9px 0;}
+.tag{display:inline-block;background:var(--tag-bg);color:var(--text-secondary);font-size:11.5px;padding:1px 9px;border-radius:12px;margin-right:6px;}
+.sowhat{background:#f7f1e7;border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14.3px;}
+.sowhat b{color:var(--accent);}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.chart-box{background:#fdfaf4;border:1px solid var(--border);border-radius:10px;padding:14px;}
+.chart-box h4{margin:0 0 10px;font-size:13.5px;color:var(--text-secondary);font-weight:600;text-align:center;}
+canvas{max-height:230px;}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 4px;}
+.kpi div{background:#f7f1e7;border-radius:9px;padding:12px 10px;text-align:center;}
+.kpi .n{font-size:20px;font-weight:700;color:var(--accent);display:block;line-height:1.3;}
+.kpi .l{font-size:11.5px;color:var(--text-secondary);}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;}
+th,td{border-bottom:1px solid var(--border);padding:8px 6px;text-align:left;}
+th{color:var(--text-secondary);font-weight:600;font-size:12.5px;background:#f9f4ec;}
+.hl{background:#fbf3e6;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:14px;}
+footer{text-align:center;color:var(--text-secondary);font-size:12px;padding:10px 0 0;line-height:1.9;}
+footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:680px){.grid{grid-template-columns:1fr;}.kpi{grid-template-columns:repeat(2,1fr);}section{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>保险行业洞察日报</h1>
+  <div class="sub">健康险视角 · 监管 / 产品 / 渠道 / 运营 / 精算</div>
+  <div class="meta"><span>2026年10月17日 星期六</span><span>Hermes 出品</span><span>第 1 期 · 本期聚焦「结构分化」</span></div>
+</header>
+
+<section>
+  <h2><span class="em">📊</span>今日概览</h2>
+  <ul class="brief">
+    <li><b>财险产品开发新规修订落地</b>，2026年11月1日起施行，财险系短期健康险开发环节迎来一次全面对齐。</li>
+    <li><b>健康险内部结构分化加剧</b>：前5月财险公司健康险增速 14.56%，人身险公司口径同比微降。</li>
+    <li><b>「带病体可保」成为 2026 主战场</b>：太平洋蓝医保中高端2026 行业首创取消既往症限制。</li>
+    <li><b>AI 已进入核保主链路</b>：国寿上半年智能核保审核率 96.8%，数字核保员作业率超 37%。</li>
+    <li><b>惠民保进入存量优化期</b>：累计 313 款、正常运营 202 款，2025 年新增仅 9 款。</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="em">📋</span>行业动态</h2>
+
+  <h3>1. 上半年保费 3.86 万亿、增 3.3%，健康险是财险非车业务的第一增长极</h3>
+  <p>中保协数据显示，2026 年上半年保险业原保险保费收入 3.86 万亿元，同比增 3.3%；赔款与给付 1.4 万亿元，同比增 3.8%。财产险公司原保费 9846 亿元（+2.1%），人身险公司 28716 亿元（+3.6%），外资公司份额升至 9.7%。其中，财产险公司非车险业务份额已由十年前的 25% 提高到 54%，<b>健康险同比增长 15.2%，增速较上年同期高出 6.1 个百分点</b>。</p>
+  <div class="sowhat"><b>So What｜</b>财险系健康险是我们所处的赛道，15.2% 的增速是全行业最快的板块之一；但同一时间人身险公司的健康险在缩，说明增量来自「线上化、短险、普惠型」这一侧，而不是传统个险队伍。对众安而言，这既是份额机会，也意味着同类玩家会加速涌入、获客成本上行。</div>
+  <div class="src">📎 <a href="http://finance.people.com.cn/n1/2026/0802/c1004-40772423.html" target="_blank">人民网</a> · 2026-08-02</div>
+
+  <h3>2. 前5月健康险 5521 亿：财险系 +14.56%，人身险系微降</h3>
+  <p>金融监管总局经营情况表显示，2026 年前 5 个月，人身险公司与财产险公司合计实现健康险原保险保费收入 5521 亿元，同比增 3.9%；其中财产险公司健康险 1644 亿元、同比大增 14.56%，人身险公司健康险保费同比微降。同期保险业总资产 43.23 万亿元，较年初增 4.64%。</p>
+  <div class="sowhat"><b>So What｜</b>同样的健康险大盘，两种完全相反的斜率。财险系（含专业互联网财险）靠短险、月缴、线上场景拿量；人身险系被长期重疾需求透支与预定利率调整拖住。<b>产品形态的胜负手已经不在「保额」，而在「可得性与支付节奏」。</b></div>
+  <div class="src">📎 <a href="https://www.stcn.com/article/detail/3983891.html" target="_blank">证券时报</a> · 2026-06-28</div>
+
+  <h3>3. 安联报告：中国健康险今年增 2.0%，未来十年 8.1% 领跑全球</h3>
+  <p>《2026 年安联全球保险业发展报告》指出，中国健康险市场 2026 年保费增长 2.0%，与许多市场把健康险视作小众业务不同，健康险在中国是重要品类；未来十年中国健康险预计以 8.1% 的年均增长率领跑全球，中国整体保险市场年均增速 7.3%。驱动力为老龄化、医疗成本攀升、公共医疗体系承压与居民支付能力提升。</p>
+  <div class="sowhat"><b>So What｜</b>「今年 2%、未来十年 8.1%」的组合说明当前是<b>低基数过渡期</b>而非需求见顶。长期逻辑成立，短期要靠结构（带病体、中高端、服务型）换增长，别用长期故事掩盖今年的增长压力。</div>
+  <div class="src">📎 <a href="https://finance.cctv.com/2026/07/06/ARTIQVWh6jmwSXCuVd8bJJCe260706.shtml" target="_blank">央视网财经</a> · 2026-07-06</div>
+
+  <h3>4. 中保协「以人为本，推动健康险高质量发展」主题活动 10/14 启幕</h3>
+  <p>中国新闻网 10 月 14 日报道，聚焦时代发展趋势的「以人为本，推动健康险高质量发展」主题活动即将启幕，主题落在健康险从规模导向转向价值导向。</p>
+  <div class="sowhat"><b>So What｜</b>协会层面的表述口径值得跟进：一旦「高质量发展」被具体化为考核指标（如赔付率、续保率、服务可及性披露），会直接影响产品责任设计与商详披露要求。建议持续盯会后通稿的关键词。</div>
+  <div class="src">📎 <a href="https://www.chinanews.com.cn/cj/2026/10-14/10714695.shtml" target="_blank">中国新闻网</a> · 2026-10-14</div>
+
+  <h3>5. 惠民保：累计 313 款、正常运营 202 款，2025 年新增仅 9 款</h3>
+  <p>许闲团队《2025 年城市定制型商业医疗保险（惠民保）知识图谱》显示，截至 2025 年 7 月 31 日全国累计推出 313 款惠民保产品，正常运营产品稳定在 202 款，降幅明显收窄，2025 年新增产品仅 9 款。2026 年度各地产品仍在迭代上线，如 7 月 9 日上线的「春城惠民保」由 11 家保险机构联合共保，深圳 2026 年度惠民保由 5 家商保公司承办。</p>
+  <div class="sowhat"><b>So What｜</b>普惠层的「扩面红利」基本结束，剩下的是续保率与赔付率的存量博弈。对商业健康险的启示：<b>惠民保守住底盘（医保目录外高额费用），商保必须往上做中高端、往下做带病体细分，中间地带会被两头挤压。</b></div>
+  <div class="src">📎 <a href="http://www.jjckb.cn/20251122/2e303fe2fc0e4317bb961afe95c970b7/c.html" target="_blank">经济参考报</a> · <a href="https://www.km.gov.cn/c/2026-07-10/5095837.shtml" target="_blank">昆明市政府</a> · 2026-07-10</div>
+</section>
+
+<section>
+  <h2><span class="em">🏛️</span>政策新规</h2>
+
+  <h3>1. 金融监管总局修订财险产品开发新规，2026 年 11 月 1 日起施行</h3>
+  <p>10 月 10 日消息，金融监管总局修订财险产品开发相关规定，自 2026 年 11 月 1 日起施行。这是财险产品条款费率管理体系的又一次修订，距施行仅半个月窗口期。</p>
+  <div class="sowhat"><b>So What｜行动项：</b>①在售短期健康险（百万医疗、门诊险、意外医疗附加）逐款比对开发要求，重点看条款表述、责任免除、费率浮动与停售管理；②报备/备案材料清单是否有新增要素；③11 月前完成产品盘点与开发流程改造，避免带病上线。这类修订通常不只影响新产品，<b>存续产品的条款一致性也常被抽查</b>。</div>
+  <div class="src">📎 <a href="https://www.guancha.cn/GuanJinRong/2026_10_10_903745.shtml" target="_blank">观察者网</a> · 2026-10-10</div>
+
+  <h3>2. 《银行业保险业网络安全管理办法（征求意见稿）》公开征求意见</h3>
+  <p>金融监管总局就《银行业保险业网络安全管理办法（征求意见稿）》公开征求意见，覆盖机构网络安全管理、数据安全、外包与供应链风险管理等。</p>
+  <div class="sowhat"><b>So What｜</b>健康险是保险业里数据敏感度最高的品类（健康告知、病历、理赔影像）。影响面：线上投保链路、小程序/APP、以及与医院、TPA、药房的数据合作。<b>建议提前把「医疗数据合作方的安全评估与责任条款」补进合同模板</b>，等正式稿下发再改成本更高。</div>
+  <div class="src">📎 <a href="https://www.stcn.com/article/detail/4011670.html" target="_blank">证券时报</a> · 2026</div>
+
+  <h3>3. 商保创新药目录与医保目录衔接机制持续落地</h3>
+  <p>国家医保局 2026 年目录调整工作方案明确，在基本医保目录之外同步动态调整<b>商保创新药目录</b>，该目录为推荐性、不具强制性，商业健康保险的保障范围与责任属市场行为。首版商保创新药目录已收录 19 种高价值药品，目录内药品不纳入医疗机构自费率考核、不纳入集采监测、不计入 DRG/DIP 病种付费考核。</p>
+  <div class="sowhat"><b>So What｜</b>这是健康险少见的「政策给到的确定性增量」：高值创新药既有了可参照的支付清单，也不再被院内考核反向排斥。<b>可落地动作=把商保创新药目录做成中高端医疗险的外购药责任白名单，并配套特药服务与用药随访</b>，既提升责任含金量，又能沉淀健康管理数据。</div>
+  <div class="src">📎 <a href="https://www.nhsa.gov.cn/art/2026/5/9/art_105_20455.html" target="_blank">国家医保局</a> · <a href="https://ybj.hunan.gov.cn/ybj/first113541/f4113601/202512/t20251215_33870230.html" target="_blank">湖南省医保局</a></div>
+</section>
+
+<section>
+  <h2><span class="em">🔮</span>前沿趋势</h2>
+
+  <h3>趋势一：竞争焦点从「筛风险」转向「管风险」</h3>
+  <p>过去健康险的产品力体现在健康告知设计得多细、除外项列得多全；2026 年的头部动作是反向的——太平洋健康「蓝医保·中高端医疗险（2026）」仅设两条健康告知，并<b>打破行业既往症约定惯例，成为行业首创取消既往症限制的中高端医疗险</b>；众安「众民保·中高端医疗险 2026」继续深耕带病体，填补带病人群保障空白；腾讯微保普惠版医疗险把三高人群纳入可投范围。</p>
+  <div class="sowhat"><b>So What｜</b>门槛降低后，风险不是消失而是<b>前移到理赔与服务环节</b>。谁能把「带病体的用药依从性、复诊频次、住院路径」管住，谁才有资格长期做低门槛产品。这意味着核保、理赔、健康管理三支团队必须共享一套风险指标，而不是各管一段。</div>
+
+  <h3>趋势二：AI 从「辅助工具」变成「主链路产能」</h3>
+  <p>中国人寿披露，2026 年上半年智能核保审核率达 96.8%，数字核保员作业率超 37%，保全服务智能审核率达 99%；同时为 66 万销售人员搭建「AI 私教」培训体系，用大模型输出培训素材与客户服务方案。</p>
+  <div class="sowhat"><b>So What｜</b>96.8% 这个数字的含义是：标准化核保已基本无人化，人力被腾到复杂核保、异常甄别与个性化服务。对中小机构与互联网平台的启示——<b>不要再把 AI 当降本工具，而要用它把「人力释放出来的部分」变成差异化服务</b>；只降本不提质，最终会输在体验上。</div>
+
+  <h3>趋势三：普惠层见顶，中间层空心化</h3>
+  <p>惠民保累计 313 款、正常运营 202 款、2025 年新增仅 9 款；同时中高端医疗险在密集升级（取消既往症、扩私立医院、外购药械）。两端都在加码，中间的「百万医疗标准款」最尴尬。</p>
+  <div class="sowhat"><b>So What｜</b>百万医疗的产品策略应从「拼保额、拼免赔」转向「拼续保确定性 + 拼服务」。人保好医保长期医疗旗舰版 2026 的做法值得参考：一般医疗 20 年保证续保、癌症及 11 种心血管疾病终身保证续保、新增结节与息肉保障——<b>用「续保确定性」作为长期留客的锚</b>。</div>
+</section>
+
+<section>
+  <h2><span class="em">🏢</span>保司动态</h2>
+  <ul>
+    <li><b>中国人寿｜数智蝶变</b>：新华社 10 月 12 日报道，长险新单智能审核、数智预核智能体、重疾险 AI 大模型等工具上线，风控端把大模型用于意外险与重疾责任判定、投保信息自动校验，反欺诈/反洗钱/反销售误导嵌入业务流程。</li>
+    <li><b>太平洋健康｜蓝医保中高端 2026</b>：两条健康告知 + 行业首创取消既往症限制，主打「全家一揽子」品质保障。</li>
+    <li><b>众安｜众民保·中高端医疗险 2026</b>：面向带病人群，补齐三大保障空白，延续带病体赛道长期主义策略。</li>
+    <li><b>人保健康｜好医保长期医疗旗舰版 2026</b>：20 年保证续保 + 癌症及 11 种心血管终身保证续保，新增七大部位结节息肉保障，药械保障 1500 余种。</li>
+    <li><b>泰康｜养医融合</b>：在全国 37 个重点城市布局 48 个养老项目，「旗舰 CCRC—城心机构—社区+居家」三位一体，构建 15 分钟养老便民生活圈。</li>
+  </ul>
+  <div class="src">📎 <a href="https://www.news.cn/money/20261012/e802daa4935f4b268d08c91914404c7b/c.html" target="_blank">新华网</a> · 2026-10-12 ｜ <a href="https://www.cpic.com.cn/c/2026-05-28/1883661.shtml" target="_blank">太平洋健康险</a> · 2026-05-28 ｜ <a href="https://www.jiemian.com/article/14116229.html" target="_blank">界面新闻</a></div>
+</section>
+
+<section>
+  <h2><span class="em">💡</span>产品亮点拆解：蓝医保·中高端医疗险（2026）</h2>
+  <table>
+    <tr><th style="width:22%">维度</th><th>拆解</th></tr>
+    <tr><td>目标人群</td><td>家庭整体配置：中青年支柱 + 有慢性病/亚健康的长辈 + 未成年子女，一次投保覆盖全家</td></tr>
+    <tr><td>核心设计</td><td>仅设两条健康告知，聚焦核心风险问询；<b>行业首创取消既往症限制</b>；中高端责任（含私立医院就医范围扩展）</td></tr>
+    <tr><td>差异化</td><td>把「除外承保 / 保而不赔」这个最大客户痛点直接拆掉，用极简规则替代复杂核保</td></tr>
+    <tr><td>商业逻辑</td><td>以放宽准入换客户规模与家庭保单厚度，用中高端定价空间吸收带病体的超额赔付</td></tr>
+    <tr><td>风险点</td><td>既往症取消后，逆向选择与既往病复诊支出会在第 2–3 年集中体现；若不做用药与就诊路径管理，赔付率会明显偏离定价假设；同时需关注条款表述与监管对「既往症」口径的要求</td></tr>
+  </table>
+  <div class="sowhat"><b>So What｜</b>这是对我们最直接的竞争信号：众民保系列已经在带病体赛道做了长时间积累，但当头部开始「整体取消既往症限制」，<b>「能保」不再是差异点，「保得稳、赔得顺、管得住」才是</b>。建议把竞争叙事从「谁更能保」切到「谁的带病体赔付更可控、服务闭环更完整」。</div>
+  <div class="src">📎 <a href="https://www.cpic.com.cn/c/2026-05-28/1883661.shtml" target="_blank">太平洋健康保险官网</a> · 2026-05-28</div>
+</section>
+
+<section>
+  <h2><span class="em">👥</span>消费者洞察</h2>
+  <h3>1. 「免健告」正在成为选购入口词</h3>
+  <p>2025–2026 年医疗险推荐类内容中，「免健告」「亚健康体况便捷投保」已成为独立分类，覆盖扩展承保年龄至 70 岁、住院门急诊及院外购药、重疾 0 免赔等责任设计。说明消费者已从「买不买得起」转向「我这样的身体能不能买」。</p>
+  <h3>2. 理赔时效被摆到与保额同等位置</h3>
+  <p>腾讯微保普惠版医疗险主打「门诊 1 日赔、住院 3 日赔」，并在微信支付完成住院缴费后主动提示「去报销」，把理赔入口前移到支付场景。</p>
+  <div class="sowhat"><b>So What｜</b>两个洞察指向同一件事：<b>决策链路的关键节点是「能不能买」和「多久能赔」，而不是保额数字</b>。商详页与投放素材应把这两点放到首屏；理赔时效是可被量化和对比的指标，值得做成对外承诺。</div>
+  <div class="src">📎 <a href="https://www.jiemian.com/article/14166931.html" target="_blank">界面新闻</a> ｜ <a href="https://news.pedaily.cn/20260320/125926.shtml" target="_blank">投资界</a></div>
+</section>
+
+<section>
+  <h2><span class="em">🎯</span>市场机会</h2>
+  <h3>机会一：财险系健康险的结构性窗口（14.56% vs 微降）</h3>
+  <p>在人身险系健康险收缩的同时，财险系以短险、线上场景、月缴形态保持双位数增长。窗口期特征=监管对短期健康险的规范化（11 月新规）+ 头部产品放宽准入（取消既往症），<b>谁能在这两者之间找到「合规且可承保」的窄带，谁就能吃下这波迁移需求</b>。</p>
+  <h3>机会二：商保创新药目录 →「责任升级 + 服务变现」</h3>
+  <p>19 种高值药进入推荐性目录、不计入 DRG/DIP 考核，为外购药责任提供了明确抓手。可做的三层：责任层（目录药 100% 或高比例报销）、服务层（特药直付、用药随访、慈善赠药对接）、数据层（用药与疗效数据沉淀，反哺定价与健康管理）。</p>
+</section>
+
+<section>
+  <h2><span class="em">📱</span>用户运营专栏</h2>
+  <h3>1. 私域分层触达的 T+ 节奏（可复用模板）</h3>
+  <p>互联网保险私域案例给出的分层节奏：<b>T+1</b> 根据用户分层、标签与欢迎语后的浏览行为分层，自动化触达并挂短险链接转化；<b>T+3</b> 用理赔/支持类内容建立信任、保持粘性并二次转化；已转化短险的用户打标后推长险；<b>T+7</b> 主题化用户教育，推直播预告并在直播中转化，观看行为与企微数据匹配判断意向度；<b>T+13</b> 未转化线索流转到其他险种做流量互通。该案例称保费增幅达 400%。</p>
+  <div class="sowhat"><b>So What｜</b>关键不是 T+几，而是<b>「行为触发」替代「时间触发」</b>：同一时间点，看过条款的人和没看过的人应收到完全不同的话术。可落地动作=把浏览深度、条款停留、保费试算三个行为做成人群包，接进现有自动化触达。</div>
+  <h3>2. CLV + RFM：把「续保率」拆成可运营的分层</h3>
+  <p>CLV（客户全生命周期价值）+ RFM（最近消费 R、频次 F、金额 M）是私域精细化运营的通用框架：先用 RFM 做价值分层，再用 CLV 判断该层用户值得投入多少服务成本，避免「对所有用户用同一套服务」。</p>
+  <div class="sowhat"><b>So What｜</b>健康险的特殊性在于：F（频次）天然低，所以要用<b>「理赔次数 + 健康服务使用次数 + 保单数」替代单一缴费频次</b>；M 不只看保费，应看「保费 − 赔付 − 服务成本」的净贡献。这套改造后的模型才适合健康险。</div>
+  <div class="src">📎 <a href="https://www.woshipm.com/marketing/5818569.html" target="_blank">人人都是产品经理</a> ｜ <a href="https://www.growingio.com/news/018" target="_blank">GrowingIO</a></div>
+</section>
+
+<section>
+  <h2><span class="em">📐</span>精算小课堂：可调费长期医疗险的赔付率展望</h2>
+  <p>长期医疗险（费率可调）的定价核心，是把人群拆成<b>健康体</b>与<b>过往患病体</b>两类，分别估计暴露人数与人均赔付成本，相乘加总后得到总体赔付率的展望曲线。行业实务观察：在不考虑新业务的情况下，<b>长期医疗的赔付率增速趋势较快</b>；调费机制可以在一定程度上对冲赔付增长，但调费效果本身存在不确定性（费率上调会引起健康体退保，剩余人群结构进一步恶化，形成「死亡螺旋」风险）。</p>
+  <p>因此精算在产品研发阶段就要做两件事：一是识别关键风险因子（年龄结构、既往症占比、就医与用药行为），二是把未来的赔付与调费有效性向市场端传递「理性预期」，而不是留到第 3 年集中暴露。</p>
+  <div class="hl"><b>数据侧可对照：</b>按《关于规范短期健康保险业务有关问题的通知》（银保监办发〔2021〕7 号）要求，保险公司须每半年在官网披露个人短期健康险业务整体综合赔付率。中美联泰大都会人寿已于 2026 年 7 月 29 日披露 2026 年上半年数据。<b>这项披露是同行横向对标最直接、最免费的数据源</b>——建议把主要竞品的半年度综合赔付率做成一张持续跟踪表。</div>
+  <div class="src">📎 <a href="https://www.theactuarymagazine.org/adjustable-rates-for-long-term-medical-insurance-part-1-ch" target="_blank">The Actuary Magazine（中文版）</a> ｜ <a href="https://www.metlife.com.cn/strapi-uploads/assets/_858a308b1d.pdf" target="_blank">大都会人寿 2026H1 综合赔付率公告</a> · 2026-07-29</div>
+</section>
+
+<section>
+  <h2><span class="em">📈</span>关键数据</h2>
+  <div class="kpi">
+    <div><span class="n">3.86<span style="font-size:13px">万亿</span></span><span class="l">2026H1 原保费（+3.3%）</span></div>
+    <div><span class="n">15.2%</span><span class="l">财险公司健康险 H1 增速</span></div>
+    <div><span class="n">5521<span style="font-size:13px">亿</span></span><span class="l">前5月健康险保费（+3.9%）</span></div>
+    <div><span class="n">96.8%</span><span class="l">国寿 H1 智能核保审核率</span></div>
+  </div>
+  <div class="grid" style="margin-top:16px">
+    <div class="chart-box">
+      <h4>2026年前5月健康险保费结构（亿元）</h4>
+      <canvas id="c1"></canvas>
+    </div>
+    <div class="chart-box">
+      <h4>增速对比：财险系健康险一枝独秀</h4>
+      <canvas id="c2"></canvas>
+    </div>
+  </div>
+  <div class="src">数据来源：金融监管总局经营情况表（经证券时报报道）、中保协 2026H1 数据（人民网）、安联《2026 全球保险业发展报告》。单位与口径以原始披露为准。</div>
+</section>
+
+<footer>
+  Hermes 出品 · 生成时间 2026-10-17 11:00 CST<br>
+  本报告基于公开信息整理，数据与结论仅供行业研究参考，不构成投资或投保建议。<br>
+  信息来源已逐条标注，如与官方原文不一致，以监管机构与公司官方披露为准。
+</footer>
+
+</div>
+<script>
+const warm = {grid:'#e8dfd2', text:'#6b5b4f'};
+new Chart(document.getElementById('c1'), {
+  type:'doughnut',
+  data:{
+    labels:['财产险公司健康险 1644','人身险公司健康险 3877'],
+    datasets:[{data:[1644,3877],backgroundColor:['#c4956a','#e8d5c0'],borderColor:'#fefcf7',borderWidth:2}]
+  },
+  options:{responsive:true,maintainAspectRatio:true,cutout:'58%',
+    plugins:{legend:{position:'bottom',labels:{color:warm.text,font:{size:11},boxWidth:12}},
+      tooltip:{callbacks:{label:c=>c.label+' 亿元'}}}}
+});
+new Chart(document.getElementById('c2'), {
+  type:'bar',
+  data:{
+    labels:['财险系健康险\n(H1)','健康险合计\n(前5月)','行业总保费\n(H1)','中国健康险\n未来十年CAGR','全球保险\n未来十年CAGR'],
+    datasets:[{data:[15.2,3.9,3.3,8.1,5.3],
+      backgroundColor:['#c4956a','#d9b894','#e8d5c0','#c4956a','#d9b894'],
+      borderRadius:5,barPercentage:0.62}]
+  },
+  options:{responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},
+    scales:{y:{beginAtZero:true,grid:{color:warm.grid},ticks:{color:warm.text,font:{size:10},callback:v=>v+'%'}},
+      x:{grid:{display:false},ticks:{color:warm.text,font:{size:10}}}}}
+});
+</script>
+</body>
+</html>
