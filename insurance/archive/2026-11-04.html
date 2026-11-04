@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes保险行业日报 · 2026-11-04</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#faf8f3;--card-bg:#fefcf7;--text:#3d2b1f;--text-secondary:#6b5b4f;--accent:#c4956a;--accent-light:#e8d5c0;--border:#e0d6c8;--tag-bg:#f0e6d8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 48px}
+.hero{background:linear-gradient(135deg,#fefcf7 0%,#f5ead9 100%);border:1px solid var(--border);border-radius:18px;padding:32px 28px;margin-bottom:24px}
+.hero h1{font-size:24px;margin-bottom:8px}
+.hero .date{color:var(--text-secondary);font-size:14px}
+.hero .summary{margin-top:14px;font-size:15px;color:var(--text-secondary)}
+.section{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px}
+.section h2{font-size:19px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--accent-light)}
+.item{padding:12px 0;border-bottom:1px dashed var(--border)}
+.item:last-child{border-bottom:none}
+.item h3{font-size:16px;margin-bottom:6px}
+.item p{font-size:14px;color:var(--text-secondary)}
+.item .so-what{font-size:14px;color:var(--text);background:var(--tag-bg);border-radius:8px;padding:8px 12px;margin-top:8px}
+.item .so-what b{color:var(--accent)}
+.tag{display:inline-block;background:var(--tag-bg);color:var(--accent);font-size:12px;padding:2px 10px;border-radius:20px;margin-right:6px;margin-bottom:4px}
+.src{font-size:12px;color:var(--text-secondary);margin-top:6px}
+.src a{color:var(--accent);text-decoration:none}
+.chart-box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin:16px 0}
+.chart-box h4{font-size:14px;color:var(--text-secondary);margin-bottom:10px;text-align:center}
+.canvas-wrap{position:relative;height:280px}
+.footer{text-align:center;color:var(--text-secondary);font-size:12px;margin-top:32px;line-height:2}
+@media(max-width:600px){.hero{padding:22px 18px}.section{padding:18px 14px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>🏥 Hermes保险行业日报</h1>
+  <div class="date">2026年11月4日 星期三 · 面向健康险从业者</div>
+  <div class="summary">📌 <b>今日主线：</b>健康险年内保费冲刺万亿关口，带病体保险从"敢保"走向"可持续经营"；AI嵌入保险全链条提速，从理赔提速转向"扩大可保边界"。</div>
+</div>
+
+<div class="section">
+  <h2>📊 今日概览</h2>
+  <div class="item"><p>1️⃣ 财险公司前三季健康险保费2313亿元（+15.4%），全行业年内冲击万亿关口</p></div>
+  <div class="item"><p>2️⃣ 众民保四周年：累计保费超50亿元、承保保单超600万份，带病体赛道跑通样本</p></div>
+  <div class="item"><p>3️⃣ 金融街论坛保险大会：AI从"理赔提速"走向"扩大可保边界"，平安健康险发布双智能体</p></div>
+  <div class="item"><p>4️⃣ 水滴水守大模型获2026世界互联网大会"新光"产品奖，保险垂直大模型赛道升温</p></div>
+  <div class="item"><p>5️⃣ 金融监管总局《财产保险公司保险产品开发管理规定》落地，强监管信号持续</p></div>
+</div>
+
+<div class="section">
+  <h2>📋 行业动态</h2>
+  <div class="item">
+    <h3>1. 健康险保费冲击万亿元关口，带病体保险正加速突围</h3>
+    <p>保险业经营数据显示：财险公司2026年前三季度健康险保费2313亿元，同比增长15.4%，增速领跑其他财险业务，已超过去年全年的2274亿元；加之人身险公司健康险保费6352亿元，全行业健康险保费年内冲击万亿元关口可期。财险公司、人身险公司双线高增。</p>
+    <div class="chart-box">
+      <h4>健康险保费结构（2026年前三季度，亿元）</h4>
+      <div class="canvas-wrap"><canvas id="chart1"></canvas></div>
+    </div>
+    <div class="so-what"><b>So What：</b>万亿关口意味着健康险正式成为"大品类"。财险公司板块15.4%增速远超行业均值，短期险、场景险仍是增长引擎——这与你负责的健康险保费盘子直接相关，竞对在财险系场景险上的放量值得纳入竞情跟踪。</div>
+    <div class="src">📎 [央视网财经/每日经济新闻](https://finance.cctv.com/2026/11/03/ARTIKdMkj3tGHiNgzOKH3HpJ261103.shtml) · 2026-11-03</div>
+  </div>
+  <div class="item">
+    <h3>2. 众民保四周年：累计保费超50亿、保单超600万份</h3>
+    <p>众安保险披露带病体产品线众民保系列四周年经营数据：自2022年起步至2026年10月中旬，累计总保费超50亿元，累计承保保单超600万份、理赔近20万次。众安健康险事业部总经理陶桐桐表示"带病体保险市场需求远大于供给"，下一步方向：细化人群分类、以科技提效、夯实产品品质做长期经营。</p>
+    <div class="so-what"><b>So What：</b>带病体赛道已从"概念验证"进入"规模经营"阶段。行业2024年带病体保险市场规模才120亿元，众民保单品线4年做到50亿，说明供给侧严重不足——这是产品团队评估带病体/慢病线布局的直接参照系（众安内部案例，可直接引用做内部分享素材）。</div>
+    <div class="src">📎 [新浪财经](https://finance.sina.com.cn/roll/2026-11-03/doc-inixncmu6715398.shtml) · 2026-11-03 ｜ [上观新闻](https://www.shobserver.cn/news/detail?id=1204106) · 2026-10-30</div>
+  </div>
+  <div class="item">
+    <h3>3. 中宏保险发布Q3个险理赔服务报告：理赔时效0.13天、获赔率99.9%</h3>
+    <p>中宏保险2026年三季度个险理赔累计赔付2.1亿元（同比+4.8%），服务理赔客户12735人（+2.0%），获赔率99.9%，理赔立案支付平均时效0.13天（同比提速23%）。</p>
+    <div class="so-what"><b>So What：</b>理赔时效已成保司标准化竞争指标（国寿0.36天、中宏0.13天），行业标杆持续内卷。对用户运营的启示：理赔体验数据（时效/获赔率）是续保期用户沟通的高转化素材，"快"本身正在成为运营卖点。</div>
+    <div class="src">📎 [北青网（百度资讯）](https://www.baidu.com/s?tn=news&rtt=1&bsst=1&wd=保险科技+AI大模型+健康险+核保+理赔+数字化+应用+2026) · 2026-11-04</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🏛️ 政策新规</h2>
+  <div class="item">
+    <h3>《财产保险公司保险产品开发管理规定》正式发布（金规〔2026〕9号）</h3>
+    <p>金融监管总局发布《规定》，系对《财产保险公司保险产品开发指引》的系统性修订，共8章41条。六大要点：①压实公司主体责任，条款费率承担法律责任；②列示八类禁止开发情形（禁止承保投机风险、无实际保障内容等）；③单设附加险章节，细化附加险开发要求；④要求成立由主要负责人牵头的产品管理委员会；⑤强化产品全生命周期管理（评估-修订-清理注销）；⑥建立内部问责机制。消费者保护方面要求条款通俗易懂，免责内容须以足以引起投保人注意的方式提示。</p>
+    <div class="so-what"><b>So What：</b>健康险（短期医疗险等）多在财险公司体系内报备，此新规直接影响产品上架流程：八类禁止情形+附加险细化规则意味着产品报备材料要求趋严，产品委员会审议机制或将拉长创新产品的过会周期——上架SOP中建议预留更长的合规评审buffer。</div>
+    <div class="src">📎 [中国经济网（武汉市地方金融工作局转载）](https://jrj.wuhan.gov.cn/ztzl_57/xyrd/bxy/202610/t20261013_2860395.shtml) · 2026-10-13发布/持续生效</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔮 前沿趋势</h2>
+  <div class="item">
+    <h3>AI嵌入保险从"提速"走向"扩大可保边界"——质变信号</h3>
+    <p>新华网金融街论坛保险大会报道指出关键转变：AI在理赔端的应用侧重解决速度问题，而当前头部机构披露的数据指向更深层次效应——<b>扩大可保边界</b>。平安健康险发布"AI理赔专家"与"AI专病管家"两大智能体，将大模型能力嵌入理赔决策与专病管理核心环节。行业正借助大模型为带病体客户做健康状况识别、风险分档，解决从核保到定价的经营痛点。</p>
+    <div class="so-what"><b>So What：</b>"AI扩大可保边界"与"带病体保险突围"是同一条主线的两面：AI风险分档能力=带病体产品可持续经营的技术前提。对众安尤其相关——众民保的风控模型（风险量化评分筛除最高风险2%客群）正是这套逻辑的已落地版本，AI叙事可向上管理层面复用。</div>
+    <div class="src">📎 [新华网](http://www.xinhuanet.com/money/20261027/aecb48920a8b448585942318087dde61/c.html) · 2026-10-27</div>
+  </div>
+  <div class="item">
+    <h3>保险垂直大模型赛道升温：水滴水守大模型获世界互联网大会"新光"奖</h3>
+    <p>水滴水守大模型获2026世界互联网大会"新光"产品奖，系业内率先聚焦保险全链条的垂直大模型，基于千亿级保险专业语料训练，覆盖"产品设计—智能营销—核保风控—理赔审核—客户服务"全流程。同期镁信健康发布InsRx HealthIns AI OS，聚合513个创新药械、180余款百万医疗险、380余款惠民保产品的医药险专属数据底座。</p>
+    <div class="so-what"><b>So What：</b>竞争格局信号：互联网保司（水滴）与TPA类机构（镁信）都在抢"保险+医药数据底座"生态位。健康险产品创新越来越依赖药械数据与支付网络的整合能力，纯产品组装型玩家的差异化空间正被挤压。</div>
+    <div class="src">📎 [金台资讯/中国经济时报（百度资讯聚合）](https://www.baidu.com/s?tn=news&rtt=1&bsst=1&wd=保险科技+AI大模型+健康险+核保+理赔+数字化+应用+2026) · 2026-11-02/03</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🏢 保司动态</h2>
+  <div class="item">
+    <h3>中国人寿：500个智能体上岗，智能核保审核率96.8%</h3>
+    <p>中国人寿2026上半年：归母净利1344.89亿元（+228.6%），建设AI应用场景超90个、智能体超500个；智能核保审核率96.8%，数字核保员作业率超37%，保全服务智能审核率99%；医疗险一站式理赔直付超230万件，整体理赔时效提升至0.36天。</p>
+    <div class="so-what"><b>So What：</b>头部保司的智能核保率已接近"全自动化"水位，核保自动化不再是差异化亮点，下一步比拼的是核保<b>智能化质量</b>（风险识别精度）——与带病体扩面直接挂钩。</div>
+    <div class="src">📎 [中新网吉林（武汉市地方金融工作局转载）](https://jrj.wuhan.gov.cn/ztzl_57/xyrd/bxy/202610/t20261013_2860407.shtml) · 2026-10-13</div>
+  </div>
+  <div class="item">
+    <h3>众安：带病体保险"市场需求远大于供给"，四周年交卷</h3>
+    <p>众安健康险事业部管理层近期密集发声（新浪财经11-3专访、慧保天下/新闻晨报四周年报道）：带病体保险赔付率高于健康体是行业共识，但通过内部风控模型对客户做风险量化评估，整体经营保持稳健。产品核保部负责人王顺披露关键迭代案例：去年年中将甲状腺眼病纳入严重既往症管控，封堵"带病投保后即刻大额赔付"的逆选择漏洞。</p>
+    <div class="so-what"><b>So What：</b>甲状腺眼病案例是"新型药催生新型逆选择"的教科书样本（新药上市→带病投保→即刻大额理赔）。做责任设计/核保规则时值得建立"新药监测→既往症清单动态更新"机制，这是产品风控的前瞻动作。</div>
+    <div class="src">📎 [新浪财经](https://finance.sina.com.cn/roll/2026-11-03/doc-inixncmu6715398.shtml) · 2026-11-03 ｜ [央视网](https://finance.cctv.com/2026/11/03/ARTIKdMkj3tGHiNgzOKH3HpJ261103.shtml) · 2026-11-03</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>💡 产品亮点</h2>
+  <div class="item">
+    <h3>众民保2026：带病可投 + 家庭共享免赔，重构普惠医疗险标准</h3>
+    <p><b>目标人群：</b>高龄/带病/高危职业等非标体家庭。<b>产品设计：</b>免健康告知、无职业限制、全龄可保（30天-105周岁），一般既往症可赔；核心创新是家庭成员共享免赔额（社保内外两个责任免赔额共享）+家庭投保费率优惠最高省20%；配套慢病原研药责任（0免赔、60%赔付、月购药1次）。<b>差异化：</b>从个人免赔转向家庭共享免赔，直接提升理赔使用率——家庭任一成员出险即摊薄全家免赔门槛，解决传统医疗险"理赔使用率偏低"痛点。<b>市场反馈：</b>中高端版上线10天保费破1.4亿，系列4年累计50亿。</p>
+    <div class="so-what"><b>So What：</b>家庭共享免赔是被低估的设计创新：它把"降低赔付门槛"做成了<b>家庭投保的转化钩子</b>（拉新+提额+费率优惠三合一）。做家庭单/亲子单运营时，"共享免赔"可作为核心卖点包装测试。</div>
+    <div class="src">📎 [界面新闻](https://www.jiemian.com/article/14220709.html) · 2026-04-08（2026版持续销售）｜ [法治周末](https://www.jiemian.com/article/14220709.html) · 2026</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>👥 消费者洞察</h2>
+  <div class="item">
+    <h3>带病体人群的"风险画像差距"远超传统模型假设</h3>
+    <p>商涌科技副总裁张华引用一项覆盖4.5万人、长达6年的医保理赔研究：校正年龄性别后，有住院史患者赔付风险是未住院者的2.23倍；并发症从0个增至6个，医疗费用风险从1.83倍攀升至7.53倍；无并发症人群6年费用年均仅涨0.98%。结论：同样"确诊5年的2型糖尿病"，按时服药血糖平稳者与多次大额住院者是完全不同的风险资产，但传统风控模型把二者归为一类。</p>
+    <div class="so-what"><b>So What：</b>这组数字可直接用于带病体产品的风险分档逻辑论证：免健康告知≠放弃风险识别，"认出最差的2%（赔付率被放大5倍+的客群）"是产品可持续的关键——给核保/定价团队做内部分享时是现成素材。</div>
+    <div class="src">📎 [央视网财经/每日经济新闻](https://finance.cctv.com/2026/11/03/ARTIKdMkj3tGHiNgzOKH3HpJ261103.shtml) · 2026-11-03</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎯 市场机会</h2>
+  <div class="item">
+    <h3>机会一：带病体保险的"家庭化"改造窗口</h3>
+    <p>众民保的家庭共享免赔验证了"把带病体保障装进家庭单"的路径：带病成员是家庭投保的"钩子人群"（一人带病→全家投保→费率优惠）。行业数据显示带病体供给远小于需求，而家庭单恰好解决带病体产品两大难题——逆选择分散（家庭池稀释个体风险）与获客成本（一次触达多成员）。</p>
+    <div class="so-what"><b>So What：</b>可评估在家庭险/门诊险产品线上增加"带病成员家庭共享免赔"或"带病家属投保入口"的可行性，以家庭为单位做续保经营，提升M13留存。</div>
+  </div>
+  <div class="item">
+    <h3>机会二：理赔体验数据资产化，做续保期运营抓手</h3>
+    <p>行业理赔时效已内卷至0.13-0.36天、获赔率99%+，但多数用户对此无感知。把理赔体验数据（时效/获赔率/直付案例）做成续保期的个性化触达素材（"去年我们为你提速了X天"），是低成本高转化的运营资产。</p>
+    <div class="so-what"><b>So What：</b>续保率是Q4考核重点（M13留存30%权重），理赔数据素材库可纳入用户运营Q4动作清单。</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📱 用户运营专栏</h2>
+  <div class="item">
+    <h3>带病体客群的续保经营三板斧（众民保实践）</h3>
+    <p>众安王顺披露带病体客户留存的三个抓手，可迁移到健康险通用续保运营：</p>
+    <p>① <b>稳住续保预期</b>：产品虽为非保证续保，但"正常理赔客户不会被拒保"作为明示承诺，给客户长期信心——本质是把续保规则透明化，降低决策不确定性；</p>
+    <p>② <b>产品迭代反哺老客户</b>：老客户无论是否理赔，续保即可升级到最新产品方案——把"续保"从重复动作变成"权益升级"动作；</p>
+    <p>③ <b>保障责任随连续投保年限提升</b>：与理赔记录无关的年限权益（NCD式设计），激励客户长期留在保障池，避免"用完即走"。</p>
+    <div class="so-what"><b>So What：</b>三条均可映射到现有产品的续保权益设计：明示续保规则→老客升级通道→年限递增权益。尤其第③条"与理赔记录脱钩"对医疗险用户心智极友好，值得在续保弹窗/企微触达中做A/B验证。</div>
+    <div class="src">📎 [央视网财经/每日经济新闻](https://finance.cctv.com/2026/11/03/ARTIKdMkj3tGHiNgzOKH3HpJ261103.shtml) · 2026-11-03</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📐 精算小课堂</h2>
+  <div class="item">
+    <h3>免健康告知产品的"逆选择定价"难题：2%客群如何吞噬利润</h3>
+    <p>免健康告知产品放弃事前核保筛选后，最差2%客群的赔付率被放大超过5倍，但其满期保费贡献几乎不变——风险与保费严重错配。应对思路（行业实践）：①内部风控模型对客户做风险量化评分（年龄+性别+投保行为+既往医疗风险综合打分），拦截极端逆选择；②基于医保理赔大数据做病种风险分组定价（并发症数量是核心因子：0→6个并发症，费用风险1.83→7.53倍）；③"严重既往症清单"动态管理，封堵新药催生的逆选择窗口。<b>一句话原理：</b>免告知不等于免风控——把核保从"投保前拦截"后移到"投保后精细化分层"，定价精度决定产品生死。</p>
+    <div class="so-what"><b>延伸：</b>这与赔付率管控直接相关：事故制赔付率的分子端（赔款）主要由高风险尾部客群驱动，分层定价能力=赔付率管控能力。行业趋势是用AI大模型做健康状况识别+风险分档，替代传统"一刀切"核保规则。</div>
+    <div class="src">📎 [央视网财经/每日经济新闻](https://finance.cctv.com/2026/11/03/ARTIKdMkj3tGHiNgzOKH3HpJ261103.shtml) · 2026-11-03</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Hermes 出品 · 生成时间 2026-11-04 11:06 CST</p>
+  <p>数据来源均已标注原文链接 · 内容仅供行业研究参考，不构成任何投资或投保建议</p>
+</div>
+
+</div>
+<script>
+const ctx1=document.getElementById('chart1');
+if(ctx1){new Chart(ctx1,{type:'bar',data:{labels:['财险公司健康险(2026前三季)','财险公司健康险(2025全年)','人身险公司健康险(2026前三季)'],datasets:[{data:[2313,2274,6352],backgroundColor:['#c4956a','#e8d5c0','#8aa39b'],borderRadius:8}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x+' 亿元'}}},scales:{x:{grid:{color:'#e0d6c8'},title:{display:true,text:'保费（亿元）'}},y:{grid:{display:false}}}}});}
+</script>
+</body>
+</html>
